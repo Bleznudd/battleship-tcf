@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <vector>
+#include "Point.h"
 #include "Ship.h"
 using namespace std;
 
@@ -29,10 +30,6 @@ public:
     void DrawShips();
     void Check(Point);
     void Deploy(Ship);
-
-
-
-
 
 };
 

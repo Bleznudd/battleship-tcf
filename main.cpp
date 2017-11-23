@@ -1,6 +1,7 @@
 //main
 
 #include <iostream>
+#include "Point.h"
 #include "Grid.h"
 #include "Player.h"
 #include "Ship.h"
