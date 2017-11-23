@@ -24,7 +24,6 @@ public:
 	Grid getGrid();
 	string getName();
 	static bool getWinning;
-
 	void Attack(Point);
 
 };

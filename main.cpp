@@ -8,24 +8,22 @@
 
 using namespace std;
 
-void deploy(Player &player){
+void deploy(Player *player){
     string startp;
     string endp;
     cout << "Schieramento della flotta del giocatore " << player->getName() << endl;
     while(player->getGrid().getShipNum()>0){
         player->getGrid().DrawShips();
         cout << "Inserisci posizione inziale della nave ((x,y) due interi separati da una virgola): ";
-        cin << startp;
+        cin >> startp;
         cout << "Inserisci posizione finale della nave ((x,y) due interi separati da una virgola): ";
-        cin << endp;
-        player->getGrid().Deploy(new Ship(new Point(startp), new Point(endp)));
-        //MOD +
+        cin >> endp;
+        player->getGrid().Deploy(Ship(Point(startp),Point(endp)));
         player->getGrid.subtractShipNum();
-        //
     }
 }
 
-int main{
+int main(){
 
     bool Player::winning = false;
 
@@ -41,10 +39,10 @@ int main{
     */
     cout << "Nome giocatore 1: ";
     string s;   //nomi giocatori
-    cin << s;
+    cin >> s;
     Player *p1 = new Player(s);
     cout << "Nome giocatore 2: ";
-    cin << s;
+    cin >> s;
     Player *p2 = new Player(s);
 
     /*
@@ -64,16 +62,16 @@ int main{
             cout << "Turno del giocatore " <<  p1->getName() << endl;
             p2->getGrid.Draw();
             cout << "Inserisci posizione da colpire ((x,y) due interi separati da una virgola): ";
-            cin << thispoint;
-            p1->Attack(new Point(thispoint));
+            cin >> thispoint;
+            p1->Attack(Point(thispoint));
             thisround = true;
         }
         else{
             cout << "Turno del giocatore " <<  p2->getName() << endl;
             p1->getGrid.Draw();
             cout << "Inserisci posizione da colpire ((x,y) due interi separati da una virgola): ";
-            cin << thispoint;
-            p2->Attack(new Point(thispoint));
+            cin >> thispoint;
+            p2->Attack(Point(thispoint));
             thisround = false;
         }
     }
