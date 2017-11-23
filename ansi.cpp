@@ -1,3 +1,12 @@
+/*
+ *
+ *  QUESTO FILE NON FA PARTE DEL PROGETTO
+ *  HA IL SOLO SCOPO DI VERIFICARE IL FUNZIONAMENTO
+ *  DEGLI ANSI ESCAPE CODES
+ *
+ */
+
+
 #include <iostream>
 using namespace std;
 
