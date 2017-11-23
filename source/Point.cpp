@@ -1,4 +1,4 @@
-#include "Point.h"
+#include "../header/Point.h"
 
 using namespace std;
 

@@ -18,13 +18,12 @@ private:
 
 public:
 
-	Player(string );
+	Player(string);
 	~Player();
-
 	Grid getGrid();
 	string getName();
 	static bool getWinning;
-	void Attack(Point);
+	void Attacked(Point);	//ridondanza con Grid::Check()
 
 };
 

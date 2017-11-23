@@ -1,11 +1,11 @@
 //main
 
 #include <iostream>
-#include "Point.h"
-#include "Grid.h"
-#include "Player.h"
-#include "Ship.h"
-#include "ShipFactory.h"
+#include "./header/Point.h"
+#include "./header/Grid.h"
+#include "./header/Player.h"
+#include "./header/Ship.h"
+#include "./header/ShipFactory.h"
 
 using namespace std;
 
@@ -64,7 +64,7 @@ int main(){
             p2->getGrid.Draw();
             cout << "Inserisci posizione da colpire ((x,y) due interi separati da una virgola): ";
             cin >> thispoint;
-            p1->Attack(Point(thispoint));
+            p2->Attacked(Point(thispoint));
             thisround = true;
         }
         else{
@@ -72,7 +72,7 @@ int main(){
             p1->getGrid.Draw();
             cout << "Inserisci posizione da colpire ((x,y) due interi separati da una virgola): ";
             cin >> thispoint;
-            p2->Attack(Point(thispoint));
+            p1->Attacked(Point(thispoint));
             thisround = false;
         }
     }

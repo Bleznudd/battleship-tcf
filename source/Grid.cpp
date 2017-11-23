@@ -1,4 +1,4 @@
-#include "Grid.h"
+#include "../header/Grid.h"
 
 #define up cout << "\x1b[A"; //quest'istruzione posiziona il cursore una riga in su
 
@@ -41,8 +41,21 @@ void Grid::DrawShips(){
 
 }
 
-void Grid::Check(Point attackpoint){
-
+void Grid::Check(Point attackpoint){    //ridondanza con Player::Attacked()
+    vector<Ship*>::iterator shipiter;
+    vector<Point>::iterator pointiter;
+    bool hit = false;
+    for(shipiter=fleet.begin(); shipiter!=fleet.end(); shipiter++){
+        for(pointiter=shipiter->blocks.begin(); pointiter!=shipiter->blocks.end(); pointer++){
+            if(attackpoint==pointiter){ //come contronto Point e iterator<Point> ?
+                map[attackpoint.getX()][attackpoint.getY()] = "[#]";
+                hit = true;
+            }
+        }
+    };
+    if(hit == false){ 
+        map[attackpoint.getX()][attackpoint.getY()] = "[o]";
+    }
 }
 
 void Grid::Deploy(Ship s){

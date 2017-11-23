@@ -4,6 +4,7 @@
 #define SHIP_H
 
 #include <iostream>
+#include <vector>
 #include "Point.h"
 using namespace std;
 
@@ -11,8 +12,7 @@ class Ship{
 
 private:
     int lenght;
-    Point start;
-    Point end;
+    vector<Point> blocks;
 
 public:
     Ship();
