@@ -8,6 +8,8 @@
 #include "Ship.h"
 using namespace std;
 
+#define clear cout << "\x1b[A"; //quest'istruzione posiziona il cursore una riga in su
+
 class Grid{
 
 private:

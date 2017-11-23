@@ -31,6 +31,8 @@ int main{
     /*
      *Presentazione del gioco
     */
+    cout << "\x1b[2J"; //quest'istruzione fa un clear del terminale
+    cout << "\x1b[;H"; //quest'istruzione posiziona il cursore in alto a sinistra
     cout << "##############" << endl;
 
     /*
