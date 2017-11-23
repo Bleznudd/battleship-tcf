@@ -13,10 +13,12 @@ private:
     int y;
 
 public:
-    Point();
-    ~Point();
+
     Point(int=0, int=0);
+    ~Point();
     Point(string);
+    int getX();
+    int getY();
 
 };
 

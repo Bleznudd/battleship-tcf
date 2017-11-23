@@ -9,23 +9,19 @@
 #include "Ship.h"
 using namespace std;
 
-#define clear cout << "\x1b[A"; //quest'istruzione posiziona il cursore una riga in su
-
 class Grid{
 
 private:
-    int size;
+    int size=10;
     int shipNum;
     vector<Ship*> fleet;
-    Point *map = new Point[size][size];
+    vector<vector<string>> map = vector<vector<string>>(size, vector<string>(size));
 
 public:
     Grid(int=10);
     ~Grid();
     int getShipNum();
-    //MOD +
     void subtractShipNum();
-    //
     void Draw();
     void DrawShips();
     void Check(Point);
@@ -33,4 +29,4 @@ public:
 
 };
 
-#endif GRID_H
+#endif

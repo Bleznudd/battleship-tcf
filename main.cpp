@@ -5,6 +5,7 @@
 #include "Grid.h"
 #include "Player.h"
 #include "Ship.h"
+#include "ShipFactory.h"
 
 using namespace std;
 
@@ -18,8 +19,8 @@ void deploy(Player *player){
         cin >> startp;
         cout << "Inserisci posizione finale della nave ((x,y) due interi separati da una virgola): ";
         cin >> endp;
-        player->getGrid().Deploy(Ship(Point(startp),Point(endp)));
-        player->getGrid.subtractShipNum();
+        player->getGrid().Deploy(ShipFactory::create(startp, endp));
+        player->getGrid().subtractShipNum();
     }
 }
 
