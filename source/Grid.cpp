@@ -1,7 +1,5 @@
 #include "../header/Grid.h"
 
-#define up cout << "\x1b[A"; //quest'istruzione posiziona il cursore una riga in su
-
 using namespace std;
 
 Grid::Grid(int size_){
@@ -11,6 +9,7 @@ Grid::Grid(int size_){
             map[i][j]="[ ]";
         };
     };
+    shipNum=1;
 }
 
 Grid::~Grid(){
@@ -22,13 +21,10 @@ int Grid::getShipNum(){
 }
 
 void Grid::subtractShipNum(){
-    shipNum =- 1;
+    shipNum = shipNum - 1;
 }
 
 void Grid::Draw(){
-    for(int i=0; i <size; i++){     //probabilmente è necessario un size+ qualcosa per cancellare tutto 
-        up;
-    };
     for(unsigned int i=0; i<size; i++){
         for(unsigned int j=0; j<size; j++){
             cout << map[i][j];
@@ -41,7 +37,7 @@ void Grid::DrawShips(){
 
 }
 
-void Grid::Check(Point attackpoint){    //ridondanza con Player::Attacked()
+bool Grid::Check(Point attackpoint){    //ridondanza con Player::Attacked()
     vector<Ship*>::iterator shipiter;
     vector<Point>::iterator pointiter;
     bool hit = false;
@@ -61,6 +57,9 @@ void Grid::Check(Point attackpoint){    //ridondanza con Player::Attacked()
     if(hit == false){ 
         map[attackpoint.getX()][attackpoint.getY()] = "[-]";
     }
+    return hit;
+    //per ora la funzione è implementata come bool, ovvero restituisce solo "Colpito" oppure "Mancato"
+    //non è ancora pronta per restituire "Affondato", ma è un problema che affronterò più avanti
 }
 
 void Grid::Deploy(Ship s){

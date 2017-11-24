@@ -11,7 +11,7 @@ using namespace std;
 class Ship{
 
 private:
-    int lenght;
+    int lenght=3;
     vector<Point> blocks;
 
 public:

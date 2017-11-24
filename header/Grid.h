@@ -24,7 +24,7 @@ public:
     void subtractShipNum();
     void Draw();
     void DrawShips();
-    void Check(Point);  //ridondanza con Player::Attacked()
+    bool Check(Point);  //ridondanza con Player::Attacked()
     void Deploy(Ship);
 
 };

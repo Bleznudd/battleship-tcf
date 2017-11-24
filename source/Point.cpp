@@ -21,8 +21,8 @@ Point::Point(string s){
             else if(s.at(i)!=',' && flag==true){
                 tmpy = tmpy+s.at(i);
             }
-            else{
-
+            else if(s.at(i)==',' && flag==false){
+                flag = true;
             }
         }
     x = stoi(tmpx);

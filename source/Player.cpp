@@ -10,8 +10,8 @@ Player::~Player(){
 
 }
 
-Grid Player::getGrid(){
-    return myGrid;
+Grid* Player::getGrid(){
+    return &myGrid;
 }
 
 string Player::getName(){
@@ -19,5 +19,10 @@ string Player::getName(){
 }
 
 void Player::Attacked(Point attackpoint){   //ridondanza con Grid::Check()
-
+    if(myGrid.Check(attackpoint)==true){
+        cout << "Colpito!" << endl;
+    }
+    else{
+        cout << "Mancato" << endl;
+    }
 }

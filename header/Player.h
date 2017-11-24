@@ -20,7 +20,7 @@ public:
 
 	Player(string);
 	~Player();
-	Grid getGrid();
+	Grid* getGrid();
 	string getName();
 	static bool getWinning;
 	void Attacked(Point);	//ridondanza con Grid::Check()
