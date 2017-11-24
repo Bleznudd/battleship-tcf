@@ -18,6 +18,7 @@ public:
     Ship();
     ~Ship();
     Ship(Point, Point);
+    vector<Point> getBlocks();
     
 
 };

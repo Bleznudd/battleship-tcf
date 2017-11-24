@@ -37,3 +37,13 @@ int Point::getX(){
 int Point::getY(){
     return y;
 }
+
+bool operator==(Point &p1, Point &p2){
+    if(p1.getX() == p2.getX() && p2.getY() == p2.getY()){
+        return true;
+    }
+    else{
+        return false;
+    }
+
+}

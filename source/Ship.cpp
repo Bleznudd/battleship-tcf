@@ -23,3 +23,7 @@ Ship::Ship(Point start_, Point end_){
         cout << "La nave non è posizionabile tra i punti inseriti" << endl;
     }
 }
+
+vector<Point> Ship::getBlocks(){
+    return blocks;
+}

@@ -19,6 +19,7 @@ public:
     Point(string);
     int getX();
     int getY();
+    friend bool operator==(Point &p1, Point &p2);
 
 };
 

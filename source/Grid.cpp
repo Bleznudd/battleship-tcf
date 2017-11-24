@@ -46,15 +46,20 @@ void Grid::Check(Point attackpoint){    //ridondanza con Player::Attacked()
     vector<Point>::iterator pointiter;
     bool hit = false;
     for(shipiter=fleet.begin(); shipiter!=fleet.end(); shipiter++){
-        for(pointiter=shipiter->blocks.begin(); pointiter!=shipiter->blocks.end(); pointer++){
-            if(attackpoint==pointiter){ //come contronto Point e iterator<Point> ?
+        for(pointiter=(*shipiter)->getBlocks().begin(); pointiter!=(*shipiter)->getBlocks().end(); pointiter++){
+            if(attackpoint == (*pointiter)){ //come confronto Point e iterator<Point> ?
+                //Questa è la soluzione, gli iteratori vengono considerati al pari dei puntatori, quindi per
+                //confrotare Point e il suo iteratore devo deferenziare l'iteratore con *, analogamente, per 
+                //assegnare all'iteratore di Point il puntatore al primo punto di un iteratore di navi
+                //(ricordiamo che l'iteratore di navi è un puntatore a un puntatore a un vettore di puntatori)
+                //devo deferenziare due volte, ovvero usare * oppure *->
                 map[attackpoint.getX()][attackpoint.getY()] = "[#]";
                 hit = true;
             }
         }
     };
     if(hit == false){ 
-        map[attackpoint.getX()][attackpoint.getY()] = "[o]";
+        map[attackpoint.getX()][attackpoint.getY()] = "[-]";
     }
 }
 
