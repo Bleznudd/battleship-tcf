@@ -18,6 +18,7 @@ private:
     vector<vector<string> > map = vector<vector<string> >(size, vector<string>(size));
 
 public:
+
     Grid(int=10);
     ~Grid();
     int getShipNum();

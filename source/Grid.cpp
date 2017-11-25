@@ -42,14 +42,15 @@ void Grid::DrawShips(){
             else{
                 map[i][j] = "[ ]";
             }
+            cout << map[i][j];
         };
     };
-    Draw();
-    for(unsigned int i=0; i<size; i++){
-        for(unsigned int j=0; j<size; j++){
-            map[i][j]="[ ]";
-        };
-    };
+    // Draw();
+    // for(unsigned int i=0; i<size; i++){
+    //     for(unsigned int j=0; j<size; j++){
+    //         map[i][j]="[ ]";
+    //     };
+    // };
 }
 
 bool Grid::Check(Point attackpoint){    //ridondanza con Player::Attacked()
@@ -65,7 +66,7 @@ bool Grid::Check(Point attackpoint){    //ridondanza con Player::Attacked()
                 //confrotare Point e il suo iteratore devo deferenziare l'iteratore con *, analogamente, per 
                 //assegnare all'iteratore di Point il puntatore al primo punto di un iteratore di navi
                 //(ricordiamo che l'iteratore di navi è un puntatore a un puntatore a un vettore di puntatori)
-                //devo deferenziare due volte, ovvero usare * oppure *->
+                //devo deferenziare due volte, ovvero usare ** oppure *->
                 map[attackpoint.getX()][attackpoint.getY()] = "[#]";
                 hit = true;
             }   
