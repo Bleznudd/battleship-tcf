@@ -34,7 +34,18 @@ void Grid::Draw(){
 }
 
 void Grid::DrawShips(){
-
+    for(unsigned int i=0; i<size; i++){
+        for(unsigned int j=0; j<size; j++){
+         if(Check(Point(i,j))==true){
+            map[iterpoint.getX()][iterpoint.getY()] = "[0]";
+            };
+    };
+    Draw();
+    for(unsigned int i=0; i<size; i++){
+        for(unsigned int j=0; j<size; j++){
+            map[i][j]="[ ]";
+        };
+    };
 }
 
 bool Grid::Check(Point attackpoint){    //ridondanza con Player::Attacked()
