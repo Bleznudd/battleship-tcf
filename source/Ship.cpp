@@ -25,7 +25,7 @@ Ship::Ship(Point start_, Point end_){
 }
 
 Ship::~Ship(){
-    cout << "affondato" << endl;
+    cout << "Affondata!" << endl; //quando una nave è distrutta comunica al giocatore l'avvenuto affondamento
 }
 
 vector<Point> Ship::getBlocks(){
