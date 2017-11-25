@@ -25,7 +25,7 @@ public:
     void Draw();
     void DrawShips();
     bool Check(Point);  //ridondanza con Player::Attacked()
-    void Deploy(Ship);
+    void Deploy(Ship*);
 
 };
 

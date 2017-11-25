@@ -62,6 +62,6 @@ bool Grid::Check(Point attackpoint){    //ridondanza con Player::Attacked()
     //non è ancora pronta per restituire "Affondato", ma è un problema che affronterò più avanti
 }
 
-void Grid::Deploy(Ship s){
-    fleet.push_back(&s);
+void Grid::Deploy(Ship* s){
+    fleet.push_back(s);
 }

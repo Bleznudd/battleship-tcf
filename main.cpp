@@ -28,7 +28,7 @@ void deploy(Player *player){
         //per il momento trasformo la classe astratta ship in una reale e faccio a meno della factory
         //per verificare il funzionamento delle altre componenti
         //player->getGrid().Deploy(ShipFactory::create(Point(startp), Point(endp));
-        player->getGrid()->Deploy(Ship(Point(startp), Point(endp)));
+        player->getGrid()->Deploy(new Ship(Point(startp), Point(endp)));
         player->getGrid()->subtractShipNum();
         cout << endl;
         cout << player->getGrid()->getShipNum() << endl;
