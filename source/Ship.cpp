@@ -24,6 +24,10 @@ Ship::Ship(Point start_, Point end_){
     }
 }
 
+Ship::~Ship(){
+    cout << "affondato" << endl;
+}
+
 vector<Point> Ship::getBlocks(){
     return blocks;
 }

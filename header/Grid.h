@@ -15,7 +15,7 @@ private:
     int size=10;
     int shipNum;
     vector<Ship*> fleet;
-    vector<vector<string>> map = vector<vector<string>>(size, vector<string>(size));
+    vector<vector<string> > map = vector<vector<string> >(size, vector<string>(size));
 
 public:
     Grid(int=10);

@@ -96,7 +96,7 @@ int main(){
         }
     }
 
-    if(thisround = false){
+    if(thisround == false){
         cout << endl << "Complimenti " << p1->getName()  << " ! Hai vinto " << endl;
     }
     else{
