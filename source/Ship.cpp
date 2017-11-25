@@ -5,9 +5,7 @@ using namespace std;
 Ship::Ship(){
 
 }
-Ship::~Ship(){
 
-}
 Ship::Ship(Point start_, Point end_){
     if(abs(start_.getX()-end_.getX())==lenght){
         for(unsigned int i=0; i<lenght; i++){
