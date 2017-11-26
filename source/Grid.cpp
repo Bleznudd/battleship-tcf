@@ -59,11 +59,7 @@ bool Grid::Check(Point attackpoint){    //ridondanza con Player::Attacked()
     bool shoot = false;
     for(shipiter=fleet.begin(); shipiter!=fleet.end(); shipiter++){
         //cout << "nave: " << (**shipiter).getBlocks().begin()->getX() << "," << (**shipiter).getBlocks().begin()->getY() << endl;
-        
-        //*****************CRITICA  
-        for(pointiter=shipiter->getBlocks()->begin(); pointiter!=shipiter.getBlocks().end(); pointiter++){
-        //*****************CRITICA ^^^^  
-            
+        for(pointiter=(**shipiter).getBlocks().begin(); pointiter!=(**shipiter).getBlocks().end(); pointiter++){
             //cout << "punto: " << (*pointiter).getX() << "," << (*pointiter).getY() << endl;
             if(attackpoint == (**pointiter)){ //come confronto Point e iterator<Point> ?
                 //Questa è la soluzione, gli iteratori vengono considerati al pari dei puntatori, quindi per
