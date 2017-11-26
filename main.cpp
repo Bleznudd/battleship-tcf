@@ -31,7 +31,7 @@ void deploy(Player *player){
         player->getGrid()->Deploy(new Ship(startp,endp));
         player->getGrid()->subtractShipNum();
         // cout << player->getGrid()->getShipNum() << endl;
-        player->getGrid()->DrawShips();
+        //player->getGrid()->DrawShips();
         cout << endl;
     }
     cout << endl;

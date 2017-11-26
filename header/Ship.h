@@ -17,7 +17,7 @@ private:
 public:
     Ship();
     ~Ship();
-    Ship(Point*, Point*);
+    Ship(Point, Point);
     vector<Point*> getBlocks();
     
 

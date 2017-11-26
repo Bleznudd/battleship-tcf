@@ -52,7 +52,7 @@ bool Point::getHit(){
     return hit;
 }
 
-void Point::setHit(const bool tf){
+void Point::setHit(bool tf){
     hit = tf;
 }
 

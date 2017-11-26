@@ -12,7 +12,6 @@ Player::Player(){
     counter++;
     cout << "Nome giocatore " << counter << ": ";
     cin >> name;
-
 }
 
 Player::~Player(){

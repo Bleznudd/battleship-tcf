@@ -77,11 +77,11 @@ bool Grid::Check(Point attackpoint){    //ridondanza con Player::Attacked()
         map[attackpoint.getX()][attackpoint.getY()] = "[-]";
     }
     cout << (*pointiter)->getHit() << "  " << shoot<< endl;
-    return (*pointiter)->getHit();
+    return shoot;
     //per ora la funzione è implementata come bool, ovvero restituisce solo "Colpito" oppure "Mancato"
     //non è ancora pronta per restituire "Affondato", ma è un problema che affronterò più avanti
 }
 
-void Grid::Deploy(Ship* s){
+void Grid::Deploy(Ship *s){
     fleet.push_back(s);
 }
