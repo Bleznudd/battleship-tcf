@@ -73,10 +73,6 @@ int main(){
      *Gioco
     */
     bool thisround = false;
-<<<<<<< HEAD
-=======
-    Point thispoint;
->>>>>>> fc67e1a89d7a4d231e83ab687ee7ce557fd1f9a9
     for(int i =0; i<10; i++){
         cout << endl;
     }
@@ -86,26 +82,14 @@ int main(){
             up();
             cout << "Turno del giocatore " <<  p1->getName() << endl;
             p2->getGrid()->Draw();
-<<<<<<< HEAD
             p2->Attacked();
-=======
-            cout << "Inserisci posizione da colpire ((x,y) due interi separati da una virgola): ";
-            cin >> thispoint;
-            p2->Attacked(thispoint);
->>>>>>> fc67e1a89d7a4d231e83ab687ee7ce557fd1f9a9
             thisround = true;
         }
         else{
             up();
             cout << "Turno del giocatore " <<  p2->getName() << endl;
             p1->getGrid()->Draw();
-<<<<<<< HEAD
             p1->Attacked();
-=======
-            cout << "Inserisci posizione da colpire ((x,y) due interi separati da una virgola): ";
-            cin >> thispoint;
-            p1->Attacked(thispoint);
->>>>>>> fc67e1a89d7a4d231e83ab687ee7ce557fd1f9a9
             thisround = false;
         }
     }
