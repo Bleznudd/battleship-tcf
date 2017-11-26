@@ -31,7 +31,7 @@ void deploy(Player *player){
         player->getGrid()->Deploy(new Ship(startp,endp));
         player->getGrid()->subtractShipNum();
         // cout << player->getGrid()->getShipNum() << endl;
-        //player->getGrid()->DrawShips();
+        player->getGrid()->DrawShips();
         cout << endl;
     }
     cout << endl;
@@ -74,7 +74,6 @@ int main(){
      *Gioco
     */
     bool thisround = false;
-    Point thispoint;
     for(int i =0; i<10; i++){
         cout << endl;
     }
@@ -84,18 +83,14 @@ int main(){
             up();
             cout << "Turno del giocatore " <<  p1->getName() << endl;
             p2->getGrid()->Draw();
-            cout << "Inserisci posizione da colpire ((x,y) due interi separati da una virgola): ";
-            cin >> thispoint;
-            p2->Attacked(thispoint);
+            p2->Attacked();
             thisround = true;
         }
         else{
             up();
             cout << "Turno del giocatore " <<  p2->getName() << endl;
             p1->getGrid()->Draw();
-            cout << "Inserisci posizione da colpire ((x,y) due interi separati da una virgola): ";
-            cin >> thispoint;
-            p1->Attacked(thispoint);
+            p1->Attacked();
             thisround = false;
         }
     }

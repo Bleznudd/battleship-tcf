@@ -18,7 +18,11 @@ string Player::getName(){
     return name;
 }
 
-void Player::Attacked(Point attackpoint){   //ridondanza con Grid::Check()
+void Player::Attacked(){   //ridondanza con Grid::Check()
+
+    Point attackpoint;
+    cout << "Inserisci posizione da colpire ((x,y) due interi separati da una virgola): ";
+    cin >> attackpoint;
     if(myGrid.Check(attackpoint)==true){
         cout << "Colpito!" << endl;
     }
