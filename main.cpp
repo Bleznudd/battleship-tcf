@@ -51,13 +51,8 @@ int main(){
     /*
      *Caricamento giocatori
     */
-    cout << "Nome giocatore 1: ";
-    string s;   //nomi giocatori
-    cin >> s;
-    Player *p1 = new Player(s);
-    cout << "Nome giocatore 2: ";
-    cin >> s;
-    Player *p2 = new Player(s);
+    Player *p1 = new Player();
+    Player *p2 = new Player();
 
     /*
      *Schieramento flotte
