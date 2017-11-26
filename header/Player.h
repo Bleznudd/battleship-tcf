@@ -23,7 +23,7 @@ public:
 	Grid* getGrid();
 	string getName();
 	static bool getWinning;
-	void Attacked(Point);	//ridondanza con Grid::Check()
+	void Attacked();	//ridondanza con Grid::Check()
 
 };
 
