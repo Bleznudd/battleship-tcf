@@ -6,6 +6,7 @@ using namespace std;
 Point::Point(int x_, int y_){
     x = x_;
     y = y_;
+    hit = false;
 }
 Point::~Point(){
 
@@ -45,6 +46,14 @@ int Point::getX(){
 
 int Point::getY(){
     return y;
+}
+
+bool Point::getHit(){
+    return hit;
+}
+
+void Point::setHit(const bool tf){
+    hit = tf;
 }
 
 bool operator==(Point &p1, Point &p2){

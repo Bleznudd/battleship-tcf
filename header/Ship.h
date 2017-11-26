@@ -12,13 +12,13 @@ class Ship{
 
 private:
     int lenght=3;
-    vector<Point> blocks;
+    vector<Point*> blocks;
 
 public:
     Ship();
     ~Ship();
-    Ship(Point, Point);
-    vector<Point> getBlocks();
+    Ship(Point*, Point*);
+    vector<Point*> getBlocks();
     
 
 };
