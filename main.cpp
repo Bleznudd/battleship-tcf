@@ -10,7 +10,7 @@
 using namespace std;
 
 void up(){
-    for(int i=0; i <10+3+4; i++){     //probabilmente è necessario un size+ qualcosa per cancellare tutto 
+    for(int i=0; i <10+3+4+1; i++){     //probabilmente è necessario un size+ qualcosa per cancellare tutto 
         cout << "\x1b[A"; //quest'istruzione posiziona il cursore una riga in su
     };
 }
@@ -34,6 +34,7 @@ void deploy(Player *player){
         player->getGrid()->DrawShips();
         cout << endl;
     }
+    cout << endl;
 }
 
 int main(){

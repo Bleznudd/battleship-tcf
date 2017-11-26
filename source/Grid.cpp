@@ -55,27 +55,33 @@ void Grid::DrawShips(){
 
 bool Grid::Check(Point attackpoint){    //ridondanza con Player::Attacked()
     vector<Ship*>::iterator shipiter;
-    vector<Point>::iterator pointiter;
-    bool hit = false;
+    vector<Point*>::iterator pointiter;
+    bool shoot = false;
     for(shipiter=fleet.begin(); shipiter!=fleet.end(); shipiter++){
-        cout << "nave: " << (**shipiter).getBlocks().begin()->getX() << "," << (**shipiter).getBlocks().begin()->getY() << endl;
-        for(pointiter=(*shipiter)->getBlocks().begin(); pointiter!=(*shipiter)->getBlocks().end(); pointiter++){
-            cout << "punto: " << (*pointiter).getX() << "," << (*pointiter).getY() << endl;
-            if(attackpoint == (*pointiter)){ //come confronto Point e iterator<Point> ?
+        //cout << "nave: " << (**shipiter).getBlocks().begin()->getX() << "," << (**shipiter).getBlocks().begin()->getY() << endl;
+        
+        //*****************CRITICA  
+        for(pointiter=shipiter->getBlocks()->begin(); pointiter!=shipiter.getBlocks().end(); pointiter++){
+        //*****************CRITICA ^^^^  
+            
+            //cout << "punto: " << (*pointiter).getX() << "," << (*pointiter).getY() << endl;
+            if(attackpoint == (**pointiter)){ //come confronto Point e iterator<Point> ?
                 //Questa è la soluzione, gli iteratori vengono considerati al pari dei puntatori, quindi per
                 //confrotare Point e il suo iteratore devo deferenziare l'iteratore con *, analogamente, per 
                 //assegnare all'iteratore di Point il puntatore al primo punto di un iteratore di navi
                 //(ricordiamo che l'iteratore di navi è un puntatore a un puntatore a un vettore di puntatori)
                 //devo deferenziare due volte, ovvero usare ** oppure *->
                 map[attackpoint.getX()][attackpoint.getY()] = "[#]";
-                hit = true;
+                shoot = true;
+                (*pointiter)->setHit(true);
             }   
         }
     };
-    if(hit == false){ 
+    if((*pointiter)->getHit() == false){ 
         map[attackpoint.getX()][attackpoint.getY()] = "[-]";
     }
-    return hit;
+    cout << (*pointiter)->getHit() << "  " << shoot<< endl;
+    return (*pointiter)->getHit();
     //per ora la funzione è implementata come bool, ovvero restituisce solo "Colpito" oppure "Mancato"
     //non è ancora pronta per restituire "Affondato", ma è un problema che affronterò più avanti
 }
