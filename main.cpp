@@ -10,7 +10,7 @@
 using namespace std;
 
 void up(){
-    for(int i=0; i <10+3; i++){     //probabilmente è necessario un size+ qualcosa per cancellare tutto 
+    for(int i=0; i <10+3+4; i++){     //probabilmente è necessario un size+ qualcosa per cancellare tutto 
         cout << "\x1b[A"; //quest'istruzione posiziona il cursore una riga in su
     };
 }
@@ -20,7 +20,7 @@ void deploy(Player *player){
     string endp;
     cout << "Schieramento della flotta del giocatore " << player->getName() << endl;
     while(player->getGrid()->getShipNum()>0){
-        player->getGrid()->DrawShips();
+        //player->getGrid()->DrawShips();
         cout << "Inserisci posizione inziale della nave ((x,y) due interi separati da una virgola): ";
         cin >> startp;
         cout << "Inserisci posizione finale della nave ((x,y) due interi separati da una virgola): ";
@@ -30,9 +30,8 @@ void deploy(Player *player){
         //player->getGrid().Deploy(ShipFactory::create(Point(startp), Point(endp));
         player->getGrid()->Deploy(new Ship(Point(startp), Point(endp)));
         player->getGrid()->subtractShipNum();
-        cout << endl;
-        cout << player->getGrid()->getShipNum() << endl;
-        player->getGrid()->DrawShips();
+        // cout << player->getGrid()->getShipNum() << endl;
+        //player->getGrid()->DrawShips();
         cout << endl;
     }
 }
@@ -65,6 +64,9 @@ int main(){
     */
     deploy(p1);
     deploy(p2);
+    cout << endl << endl;
+    cout << endl << endl;
+    cout << endl << endl;
 
 
     /*
