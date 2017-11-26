@@ -19,7 +19,13 @@ public:
     Point(string);
     int getX();
     int getY();
+    void setX(int);
+    void setY(int);
     friend bool operator==(Point &p1, Point &p2);
+    friend ostream& operator<<(ostream& ostream, Point &p1);
+    friend istream& operator>>(istream& istream, Point &p1);
+    friend Point operator+(Point &p1, Point &p2);
+    friend Point operator-(Point &p1, Point &p2);
 
 };
 
