@@ -16,8 +16,8 @@ void up(){
 }
 
 void deploy(Player *player){
-    string startp;
-    string endp;
+    Point startp;
+    Point endp;
     cout << "Schieramento della flotta del giocatore " << player->getName() << endl;
     while(player->getGrid()->getShipNum()>0){
         //player->getGrid()->DrawShips();
@@ -28,7 +28,7 @@ void deploy(Player *player){
         //per il momento trasformo la classe astratta ship in una reale e faccio a meno della factory
         //per verificare il funzionamento delle altre componenti
         //player->getGrid().Deploy(ShipFactory::create(Point(startp), Point(endp));
-        player->getGrid()->Deploy(new Ship(Point(startp), Point(endp)));
+        player->getGrid()->Deploy(new Ship(startp,endp));
         player->getGrid()->subtractShipNum();
         // cout << player->getGrid()->getShipNum() << endl;
         //player->getGrid()->DrawShips();
@@ -73,7 +73,7 @@ int main(){
      *Gioco
     */
     bool thisround = false;
-    string thispoint;
+    Point thispoint;
     for(int i =0; i<10; i++){
         cout << endl;
     }
@@ -85,7 +85,7 @@ int main(){
             p2->getGrid()->Draw();
             cout << "Inserisci posizione da colpire ((x,y) due interi separati da una virgola): ";
             cin >> thispoint;
-            p2->Attacked(Point(thispoint));
+            p2->Attacked(thispoint);
             thisround = true;
         }
         else{
@@ -94,7 +94,7 @@ int main(){
             p1->getGrid()->Draw();
             cout << "Inserisci posizione da colpire ((x,y) due interi separati da una virgola): ";
             cin >> thispoint;
-            p1->Attacked(Point(thispoint));
+            p1->Attacked(thispoint);
             thisround = false;
         }
     }
