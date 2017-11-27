@@ -1,3 +1,22 @@
 //nave da 3
 
-#include
+#ifndef CRUISER_H
+#define CRUISER_H
+
+#include <iostream>
+#include <vector>
+#include "Point.h"
+using namespace std;
+
+class Cruiser:private Ship{
+
+private:
+
+public:
+    ~Cruiser();
+    Cruiser(Point, Point);
+    
+
+};
+
+#endif
