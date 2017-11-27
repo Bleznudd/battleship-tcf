@@ -28,7 +28,7 @@ static Ship create(Point pstart, Point pend){
     
     bool creation=false;
 
-    while(creation=false){
+    while(creation==false){
         if(lenght==2){
             Ship *ship = new Destroyer(pstart,pend);
             creation=true;
