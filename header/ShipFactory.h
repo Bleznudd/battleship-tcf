@@ -4,10 +4,10 @@
 #define SHIPFACT_H
 
 #include <iostream>
-#include "Destroyer.h"
-#include "Cruiser.h"
-#include "Carrier.h"
-#include "Battleship.h"
+// #include "Destroyer.h"
+// #include "Cruiser.h"
+// #include "Carrier.h"
+// #include "Battleship.h"
 #include "Ship.h"
 
 using namespace std;
@@ -18,6 +18,7 @@ public:
 
     ShipFactory();
     ~ShipFactory();
+    static void create(Point, Point);
 
 };
 

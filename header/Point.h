@@ -13,6 +13,7 @@ private:
     int y;
     bool hit;
     bool shippoint;
+    char[3] mark;
 
 public:
 
@@ -22,8 +23,10 @@ public:
     int getY();
     void setX(int);
     void setY(int);
+    void setMark(const char[3]);
     bool getHit();
     void setHit(bool);
+    bool getShippoint();
     friend bool operator==(Point &p1, Point &p2);
     friend ostream& operator<<(ostream& ostream, Point &p1);
     friend istream& operator>>(istream& istream, Point &p1);
