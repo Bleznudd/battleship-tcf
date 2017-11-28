@@ -10,7 +10,7 @@ using namespace std;
 
 class Ship{
 
-private:
+protected:
     int lenght=3;
     vector<Point*> blocks;
 

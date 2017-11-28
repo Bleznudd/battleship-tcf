@@ -8,7 +8,7 @@
 #include "Point.h"
 using namespace std;
 
-class Carrier:private Ship{
+class Carrier:public Ship{
 
 private:
 
