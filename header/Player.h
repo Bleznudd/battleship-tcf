@@ -12,20 +12,14 @@ class Player{
 
 private:
 
-	static bool winning;
-	Grid myGrid;
 	string name;
-	static int counter;
 
 public:
 
 	Player(string);
 	Player();
 	~Player();
-	Grid* getGrid();
 	string getName();
-	static bool getWinning;
-	void Attacked();	//ridondanza con Grid::Check()
 
 };
 

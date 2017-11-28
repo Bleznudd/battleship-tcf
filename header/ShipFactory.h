@@ -14,13 +14,10 @@ using namespace std;
 
 class ShipFactory{
 
-private:
-    
 public:
 
     ShipFactory();
     ~ShipFactory();
-    static Ship create(Point, Point);
 
 };
 

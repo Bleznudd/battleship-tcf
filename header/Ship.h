@@ -11,15 +11,11 @@ using namespace std;
 class Ship{
 
 protected:
-    int lenght=3;
-    vector<Point*> blocks;
 
 public:
+    
     Ship();
     ~Ship();
-    Ship(Point, Point);
-    vector<Point*> getBlocks();
-    
 
 };
 
