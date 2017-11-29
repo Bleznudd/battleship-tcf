@@ -30,6 +30,12 @@ bool Point::getHit(){
 void Point::setHit(bool tf){
     hit = tf;
 }
+bool Point::getShippoint(){
+    return shippoint;
+}
+void Point::setShippoint(bool sp){
+    shippoint = sp;
+}
 bool operator==(Point &p1, Point &p2){
     if(p1.getX() == p2.getX() && p1.getY() == p2.getY()){
         return true;

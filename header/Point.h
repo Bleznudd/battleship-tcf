@@ -27,6 +27,7 @@ public:
     bool getHit();
     void setHit(bool);
     bool getShippoint();
+    void setShippoint(bool);
     friend bool operator==(Point &p1, Point &p2);
     friend ostream& operator<<(ostream& ostream, Point &p1);
     friend istream& operator>>(istream& istream, Point &p1);
