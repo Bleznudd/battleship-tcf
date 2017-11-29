@@ -15,6 +15,7 @@ private:
 public:
     ~Battleship();
     Battleship(Point, Point);
+    friend class ShipFactory;
     
 
 };

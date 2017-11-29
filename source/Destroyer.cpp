@@ -18,5 +18,5 @@ Destroyer::Destroyer(Point start_, Point end_){
 }
 
 Destroyer::~Destroyer(){
-    Ship::~Ship();
+    
 }v

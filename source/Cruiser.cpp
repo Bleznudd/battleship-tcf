@@ -18,5 +18,5 @@ Cruiser::Cruiser(Point start_, Point end_){
 }
 
 Cruiser::~Cruiser(){
-    Ship::~Ship();
+    
 }

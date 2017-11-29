@@ -6,7 +6,7 @@ ShipFactory::ShipFactory(){
 ShipFactory::~ShipFactory(){
     
 }
-static bool create(Point pstart, Point pend){
+static bool create(Point pstart, Point pend, Player* currentp){
 
     bool creation=false;
     int len=0;
@@ -42,9 +42,9 @@ static bool create(Point pstart, Point pend){
         break;
     }
     if(creation==true){ 
-        Player::fleet.push_back(ship);
+        currentp->fleet.push_back(ship);
         vector<Point*>::iterator iter;
-        for(iter=ship->OccupiedPoints.begin ; iter!=ship->OccupiedPoints.end; iter++){
+        for(iter=ship->OccupiedPoints.begin() ; iter!=ship->OccupiedPoints.end(); iter++){
             iter->setShippoint(true); //non va bene perchè i punti non fanno parte della griglia
         }
     }

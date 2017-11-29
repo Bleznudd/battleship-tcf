@@ -18,5 +18,5 @@ Battleship::Battleship(Point start_, Point end_){
 }
 
 Battleship::~Battleship(){
-    Ship::~Ship();
+    cout << "Affondata!" << endl;
 }

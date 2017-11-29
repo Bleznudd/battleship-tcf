@@ -15,6 +15,7 @@ private:
 public:
     ~Destroyer();
     Destroyer(Point, Point);
+    friend class ShipFactory;
     
 
 };

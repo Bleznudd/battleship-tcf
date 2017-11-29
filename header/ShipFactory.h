@@ -19,7 +19,7 @@ public:
 
     ShipFactory();
     ~ShipFactory();
-    static bool create(Point, Point);
+    static bool create(Point, Point, Player*);
 
 };
 

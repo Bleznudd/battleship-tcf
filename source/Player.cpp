@@ -31,7 +31,7 @@ void Player::Deploy(){
         cin >> pi;
         cout << "Inserisci il punto finale della tua nave: ";
         cin >> pf;
-        if(ShipFactory::create(pi, pf) == true){
+        if(ShipFactory::create(pi, pf, this) == true){
             SubstractShipnum();
         }
         else{
@@ -51,7 +51,7 @@ void Player::Attack(Player &player){
     Point attackpoint;
     cout << "Inserisci il punto che desideri attaccare: ";
     cin >> attackpoint;
-    for(vector<vector<Point>>::iterator i=map.begin(); i!=map.end(); i++){
+    for(vector<vector<Point> >::iterator i=map.begin(); i!=map.end(); i++){
         for(vector<Point>::iterator j=i->begin(); j!=i->end(); j++){
             if(*j==attackpoint && j->getHit()==false){
                 if(j->getShippoint()==true){

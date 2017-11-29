@@ -15,6 +15,7 @@ private:
 public:
     ~Carrier();
     Carrier(Point, Point);
+    friend class ShipFactory;
     
 
 };

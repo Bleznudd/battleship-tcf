@@ -17,7 +17,7 @@ protected:
 	int shipnum;
 	int size;
 	string name;
-	vector<vector<Point>> map;
+	vector<vector<Point> > map;
 	static bool somewinner;
 	vector<Ship*> fleet;
 

@@ -15,6 +15,7 @@ private:
 public:
     ~Cruiser();
     Cruiser(Point, Point);
+    friend class ShipFactory;
     
 
 };

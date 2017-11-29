@@ -7,7 +7,7 @@ Point::Point(int x_, int y_){
     x = x_;
     y = y_;
     hit = false;
-    shippart = false;
+    shippoint = false;
 }
 Point::~Point(){
 
