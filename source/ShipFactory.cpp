@@ -45,7 +45,7 @@ static bool create(Point pstart, Point pend, Player* currentp){
         currentp->fleet.push_back(ship);
         vector<Point*>::iterator iter;
         for(iter=ship->OccupiedPoints.begin() ; iter!=ship->OccupiedPoints.end(); iter++){
-            iter->setShippoint(true); //non va bene perchè i punti non fanno parte della griglia
+            (*iter)->setShippoint(true); //non va bene perchè i punti non fanno parte della griglia
         }
     }
     return creation;

@@ -9,7 +9,7 @@
 #include "Ship.h"
 using namespace std;
 
-class Carrier:private Ship{
+class Carrier:public Ship{
 
 public:
 
