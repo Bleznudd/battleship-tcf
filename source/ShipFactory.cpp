@@ -24,21 +24,26 @@ static bool create(Point pstart, Point pend){
 
     Ship *ship;
     
-    if(lenght==2){
-        *ship = new Destroyer(pstart,pend);
-        creation=true;
-    }
-    if(lenght==3){
-        *ship = new Cruiser(pstart,pend);
-        creation=true;
-    }
-    if(lenght==4){
-        *ship = new Battleship(pstart,pend);
-        creation=true;
-    }
-    if(lenght==5){
-        *ship = new Carrier(pstart,pend);
-        creation=true;
+    switch(lenght){
+        case lenght=2:
+            *ship = new Destroyer(pstart,pend);
+            creation=true;
+        break;
+        case lenght=3:
+            *ship = new Cruiser(pstart,pend);
+            creation=true;
+        break;
+        case lenght=4:
+            *ship = new Battleship(pstart,pend);
+            creation=true;
+        break;
+        case lenght=5:
+            *ship = new Carrier(pstart,pend);
+            creation=true;
+        break;
+        default:
+
+        break;
     }
 
     if(creation==true){
