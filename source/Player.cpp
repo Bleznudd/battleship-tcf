@@ -53,19 +53,19 @@ void Player::Attack(Player &player){
     cin >> attackpoint;
     for(vector<vector<Point>>::iterator i=map.begin(); i!=map.end(); i++){
         for(vector<Point>::iterator j=i->begin(); j!=i->end(); j++){
-            if(*j==attackpoint && j->getShippoint()==true && j->getHit()==false){
+            if(*j==attackpoint && j->getHit()==false)
+                if(j->getShippoint()==true){
+                    j->setMark("[#]");
+                    cout << "Colpito!" << endl;
+                } 
+                else(j->getShippoint()==false){
+                    j->setMark("[-]");
+                    cout << "Mancato!" << endl;
+                }
                 j->setHit(true);
-                j->setMark("[#]");
-                cout << "Colpito!" << endl;
-            } 
-            if(*j==attackpoint && j->getShippoint()==false && j->getHit()==false){
-                j->setHit(true);
-                j->setMark("[-]");
-                cout << "Mancato!" << endl;
-            } 
-            if(*j==attackpoint && j->getHit()==true){
-                cout << "Punto già inserito, provane un altro."
-                Attack(&player);
+            else if(*j==attackpoint && j->getHit()==true){
+                cout << "Punto già inserito, provane un altro." << endl;
+                Attack(player);
             } 
         };
     }

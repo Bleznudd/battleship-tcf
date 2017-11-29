@@ -18,7 +18,7 @@ public:
 
     ShipFactory();
     ~ShipFactory();
-    static void create(Point, Point);
+    static bool create(Point, Point);
 
 };
 
