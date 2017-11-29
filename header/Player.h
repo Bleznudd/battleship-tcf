@@ -18,6 +18,7 @@ private:
 	string name;
 	vector<vector<Point>> map;
 	static bool somewinner;
+	vector<*Ship> fleet;
 
 public:
 
@@ -30,6 +31,7 @@ public:
 	void Deploy();
 	void Draw();
 	void Attack(Player&);
+	friend class ShipFactory;
 
 };
 
