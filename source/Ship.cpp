@@ -6,5 +6,5 @@ Ship::Ship(){
 
 }
 Ship::~Ship(){
-    
+    cout << "Affondata!" << endl;
 }

@@ -56,10 +56,12 @@ void Player::Attack(Player &player){
             if(*j==attackpoint && j->getShippoint()==true && j->getHit()==false){
                 j->setHit(true);
                 j->setMark("[#]");
+                cout << "Colpito!" << endl;
             } 
             if(*j==attackpoint && j->getShippoint()==false && j->getHit()==false){
                 j->setHit(true);
                 j->setMark("[-]");
+                cout << "Mancato!" << endl;
             } 
             if(*j==attackpoint && j->getHit()==true){
                 cout << "Punto già inserito, provane un altro."
