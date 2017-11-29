@@ -8,7 +8,8 @@
 #include "Cruiser.h"
 #include "Carrier.h"
 #include "Battleship.h"
-//#include "Ship.h"
+#include "Ship.h"
+#include "Player.h"
 
 using namespace std;
 

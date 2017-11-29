@@ -5,12 +5,13 @@
 
 #include <iostream>
 #include "Point.h"
+#include "Ship.h"
 #include "ShipFactory.h"
 #include <string>
 
 class Player{
 
-private:
+protected:
 
 	static int counter;
 	int shipnum;
@@ -18,7 +19,7 @@ private:
 	string name;
 	vector<vector<Point>> map;
 	static bool somewinner;
-	vector<*Ship> fleet;
+	vector<Ship*> fleet;
 
 public:
 

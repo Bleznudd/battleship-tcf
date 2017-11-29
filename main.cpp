@@ -2,21 +2,22 @@
 
 #include <iostream>
 #include "./header/Point.h"
-#include "./header/Grid.h"
 #include "./header/Player.h"
 #include "./header/Ship.h"
 using namespace std;
 
 void up(){
-    for(int i=0; i <10+3+4+1; i++){     //probabilmente è necessario un size+ qualcosa per cancellare tutto 
-        cout << "\x1b[A"; //quest'istruzione posiziona il cursore una riga in su
-    };
+    // for(int i=0; i <10; i++){        //probabilmente è necessario un size+ qualcosa per cancellare tutto 
+    //     cout << "\x1b[A";            //quest'istruzione posiziona il cursore una riga in su
+    // };
+    //visto che non so ancora quanto in su devo spostare, per i test utilizzo un clear
+    cout << "\x1b[2J" ;                 //quest'istruzione fa un clear del teminale  
 }
 
 int main(){
 
     //PRESENTAZIONE DEL GIOCO
-    cout << "\x1b[2J" ;
+    cout << "\x1b[2J" ;                 //quest'istruzione fa un clear del teminale
     cout << "--- Benvenuti ---" << endl;
 
     //CREAZIONE DEI GIOCATORI
@@ -33,12 +34,12 @@ int main(){
         up();
         if(thisturn == false){
             p1->Draw();
-            p1->Attack(p2);
+            p1->Attack(*p2);
             thisturn = true;
         }
         else{
             p2->Draw();
-            p2->Attack(p1);
+            p2->Attack(*p1);
             thisturn = false;
         }
     };

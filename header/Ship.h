@@ -10,15 +10,16 @@ using namespace std;
 
 class Ship{
 
-protected:
+private:
 
     int lenght;
-    vector<*Point> OccupiedPoints;
+    vector<Point*> OccupiedPoints;
 
 public:
     
     Ship();
     ~Ship();
+    friend class ShipFactory;
 
 };
 
