@@ -12,6 +12,9 @@ class Ship{
 
 protected:
 
+    int lenght;
+    vector<*Point> OccupiedPoints;
+
 public:
     
     Ship();
