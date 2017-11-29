@@ -19,7 +19,7 @@ battleship-tcf:	main.o Ship.o Player.o Point.o Battleship.o Carrier.o Cruiser.o 
 
  #ISTRUZIONI PER COMPILARE LE VARIE CLASSI
 main.o:  main.cpp
-	 $(CXX) $(CFLAGS) -c ./source/main.cpp
+	 $(CXX) $(CFLAGS) -c ./main.cpp
 Ship.o:  ./source/Ship.cpp
 	 $(CXX) $(CFLAGS) -c ./source/Ship.cpp
 Player.o:  ./source/Player.cpp
