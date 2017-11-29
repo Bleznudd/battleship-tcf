@@ -10,7 +10,7 @@ using namespace std;
 
 class Ship{
 
-private:
+protected:
 
     int lenght;
     vector<Point*> OccupiedPoints;

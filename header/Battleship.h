@@ -6,18 +6,16 @@
 #include <iostream>
 #include <vector>
 #include "Point.h"
+#include "Ship.h"
 using namespace std;
 
-class Battleship:public Ship{
-
-private:
+class Battleship:private Ship{
 
 public:
-    ~Battleship();
+
     Battleship(Point, Point);
     friend class ShipFactory;
     
-
 };
 
 #endif
