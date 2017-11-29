@@ -6,12 +6,11 @@
 #include <iostream>
 #include "Point.h"
 #include "Ship.h"
-#include "ShipFactory.h"
 #include <string>
 
 class Player{
 
-protected:
+public:
 
 	static int counter;
 	int shipnum;
