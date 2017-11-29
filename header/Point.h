@@ -13,7 +13,7 @@ private:
     int y;
     bool hit;
     bool shippoint;
-    char[3] mark;
+    char mark[3];
 
 public:
 
