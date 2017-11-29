@@ -4,11 +4,11 @@
 #define SHIPFACT_H
 
 #include <iostream>
-// #include "Destroyer.h"
-// #include "Cruiser.h"
-// #include "Carrier.h"
-// #include "Battleship.h"
-#include "Ship.h"
+#include "Destroyer.h"
+#include "Cruiser.h"
+#include "Carrier.h"
+#include "Battleship.h"
+//#include "Ship.h"
 
 using namespace std;
 
