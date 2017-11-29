@@ -53,9 +53,17 @@ void Player::Attack(Player &player){
     cin >> attackpoint;
     for(vector<vector<Point>>::iterator i=map.begin(); i!=map.end(); i++){
         for(vector<Point>::iterator j=i->begin(); j!=i->end(); j++){
-            if(*j==attackpoint && j->getShippoint()==true){
+            if(*j==attackpoint && j->getShippoint()==true && j->getHit()==false){
                 j->setHit(true);
                 j->setMark("[#]");
+            } 
+            if(*j==attackpoint && j->getShippoint()==false && j->getHit()==false){
+                j->setHit(true);
+                j->setMark("[-]");
+            } 
+            if(*j==attackpoint && j->getHit()==true){
+                cout << "Punto già inserito, provane un altro."
+                Attack(&player);
             } 
         };
     }
