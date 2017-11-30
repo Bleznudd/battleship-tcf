@@ -12,15 +12,18 @@ class Ship{
 
 friend class ShipFactory;
 
-private:
+protected:
 
     int lenght;
+    bool sunk=false;
     vector<Point*> OccupiedPoints;
 
 public:
     
     Ship();
     ~Ship();
+    void setHit(Point&);
+    void checkSunk();
 
 };
 

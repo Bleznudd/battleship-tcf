@@ -65,22 +65,27 @@ void Player::Draw(){
     }
 }
 void Player::Attack(Player &player){
-    cout << "Turno del giocatore " << name << ": " <<endl;    
+    cout << "Turno del giocatore " << player.getName() << ": " <<endl;    
     Point attackpoint;
     cout << "Inserisci il punto che desideri attaccare: ";
     cin >> attackpoint;
     for(vector<vector<Point> >::iterator i=map.begin(); i!=map.end(); i++){
         for(vector<Point>::iterator j=i->begin(); j!=i->end(); j++){
             if(*j==attackpoint && j->getHit()==false){
+                j->setHit(true);
                 if(j->getShippoint()==true){
                     j->setMark("[#]");
-                    cout << "Colpito!" << endl;
+                    cout << "Colpito!";
+                    for(vector<Ship*>::iterator s=fleet.begin(); s!=fleet.end(); s++){
+                        (*s)->setHit(attackpoint);
+                        (*s)->checkSunk();
+                    }
                 }
                 else{
                     j->setMark("[-]");
-                    cout << "Mancato!" << endl;
+                    cout << "Mancato!";
                 }
-                j->setHit(true);
+                cout << endl;
             }
             else if(*j==attackpoint && j->getHit()==true){
                 cout << "Punto già inserito, provane un altro." << endl;
