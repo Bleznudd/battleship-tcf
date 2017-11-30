@@ -14,8 +14,8 @@ all:
 	$(MAKE) -j $(CPUCORES) battleship-tcf
 
  #ISTRUZIONI PER L'ESEGUIBILE
-battleship-tcf:	main.o Ship.o Player.o Point.o Battleship.o Carrier.o Cruiser.o Destroyer.o ShipFactory.o
-	 $(CXX) $(CFLAGS) main.o Ship.o Player.o Point.o Battleship.o Carrier.o Cruiser.o Destroyer.o ShipFactory.o -o battleship-tcf
+battleship-tcf:	main.o Ship.o Player.o Point.o Battleship.o Carrier.o Cruiser.o Destroyer.o ShipFactory.o Graphic.o
+	 $(CXX) $(CFLAGS) main.o Ship.o Player.o Point.o Battleship.o Carrier.o Cruiser.o Destroyer.o ShipFactory.o Graphic.o -o battleship-tcf
 
  #ISTRUZIONI PER COMPILARE LE VARIE CLASSI
 main.o:  main.cpp
@@ -36,4 +36,6 @@ Destroyer.o:  ./source/Destroyer.cpp
 	 $(CXX) $(CFLAGS) -c ./source/Destroyer.cpp
 ShipFactory.o: ./source/ShipFactory.cpp
 	 $(CXX) $(CFLAGS) -c ./source/ShipFactory.cpp
+Graphic.o: ./source/Graphic.cpp
+	 $(CXX) $(CFLAGS) -c ./source/Graphic.cpp
 	 
