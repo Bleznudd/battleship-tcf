@@ -1,7 +1,9 @@
 #include "../header/Player.h"
 #include "../header/ShipFactory.h"
+#include "../header/Graphic.h"
 
 using namespace std;
+using graphic::up;
 
 int Player::counter=0;
 bool Player::somewinner=false;
@@ -41,7 +43,9 @@ void Player::SubstractShipnum(){
 }
 void Player::Deploy(){
     cout << "Schieramento della flotta del giocatore " << name << ": " <<endl;
+    int n=1;
     while(shipnum > 0){
+        n=n+3;
         Point pi, pf;
         cout << "Inserisci il punto iniziale della tua nave: ";
         cin >> pi;
@@ -54,6 +58,7 @@ void Player::Deploy(){
             cout << "L' intervallo di punti non corrisponde a nessun tipo di nave, riprovare" << endl;
         }
     }
+    graphic::up(n);
 }
 void Player::Draw(){
     //cout << "Draw" << endl;
