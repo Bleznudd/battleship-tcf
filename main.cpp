@@ -7,12 +7,14 @@
 #include "./header/Graphic.h"
 using namespace std;
 using graphic::up;
+using graphic::clear;
+using graphic::gohome;
 
 int main(){
 
     //PRESENTAZIONE DEL GIOCO
-    cout << "\x1b[2J" ;                 //quest'istruzione fa un clear del teminale
-    cout << "\x1b[;H";                  //quest'istruzione posiziona il cursore in alto a sinistra
+    graphic::clear();
+    graphic::gohome();
     cout << "--- Benvenuti ---" << endl;
 
     //CREAZIONE DEI GIOCATORI

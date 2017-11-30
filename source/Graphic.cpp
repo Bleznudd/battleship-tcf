@@ -9,5 +9,11 @@ namespace graphic{
             cout << "\x1b[A";           //quest'istruzione posiziona il cursore una riga in su
         };  
     }
+    void clear(){
+        cout << "\x1b[2J" ;
+    }
+    void gohome(){
+        cout << "\x1b[;H";
+    }
     
 }
