@@ -61,7 +61,9 @@ void Player::Deploy(){
             cout << "L' intervallo di punti non corrisponde a nessun tipo di nave, riprovare" << endl;
         }
     }
-    graphic::up(n);
+    cin.ignore();
+    cin.ignore();
+    graphic::up(n+1);
 }
 void Player::Draw(){
     vector<vector<Point> >::iterator i;
@@ -91,6 +93,9 @@ void Player::Attack(Player &player){
                 if(j->getShippoint()==true){
                     j->setMark("[#]");
                     cout << "Colpito!";
+                    cin.ignore();
+                    cin.ignore();
+
                     for(vector<Ship*>::iterator s=fleet.begin(); s!=fleet.end(); s++){
                         (*s)->setHit(attackpoint);
                         (*s)->checkSunk();
@@ -99,14 +104,19 @@ void Player::Attack(Player &player){
                 else{
                     j->setMark("[-]");
                     cout << "Mancato!";
+                    cin.ignore();
+                    cin.ignore();
                 }
                 cout << endl;
             }
             else if(*j==attackpoint && j->getHit()==true){
                 cout << "Punto già inserito, provane un altro." << endl;
+                cin.ignore();
+                cin.ignore();
+                graphic::up(4);
                 Attack(player);
             } 
         }
     }
-    graphic::up(15);
+    graphic::up(16);
 }
