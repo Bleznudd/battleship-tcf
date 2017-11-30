@@ -11,5 +11,11 @@ namespace graphic{
         };
    
     }
+    void clear(){
+        cout << "\x1b[2J" ;
+    }
+    void gohome(){
+        cout << "\x1b[;H";
+    }
     
 }

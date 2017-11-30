@@ -5,6 +5,8 @@
 namespace graphic{
 
     void up(int);
+    void clear();
+    void gohome();
 
 }
 
