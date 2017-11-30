@@ -36,3 +36,4 @@ Destroyer.o:  ./source/Destroyer.cpp
 	 $(CXX) $(CFLAGS) -c ./source/Destroyer.cpp
 ShipFactory.o: ./source/ShipFactory.cpp
 	 $(CXX) $(CFLAGS) -c ./source/ShipFactory.cpp
+	 

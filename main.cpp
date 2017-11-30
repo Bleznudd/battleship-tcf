@@ -14,6 +14,7 @@ void up(){
     //cout << "\x1b[2J" ;                 //quest'istruzione fa un clear del teminale  
 }
 
+
 int main(){
 
     //PRESENTAZIONE DEL GIOCO
