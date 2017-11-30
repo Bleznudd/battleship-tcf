@@ -75,6 +75,7 @@ void Player::Draw(){
             cout << j->getMark()[2];    
         };
         cout << endl;
+        riga++;
     }
     cout << endl;
 }
