@@ -15,7 +15,7 @@ all:
 
  #ISTRUZIONI PER L'ESEGUIBILE
 battleship-tcf:	main.o Ship.o Player.o Point.o Battleship.o Carrier.o Cruiser.o Destroyer.o ShipFactory.o
-	 $(CXX) $(CFLAGS) main.o Ship.o Grid.o Player.o Point.o Battleship.o Carrier.o Cruiser.o Destroyer.o ShipFactory.o -o battleship-tcf
+	 $(CXX) $(CFLAGS) main.o Ship.o Player.o Point.o Battleship.o Carrier.o Cruiser.o Destroyer.o ShipFactory.o -o battleship-tcf
 
  #ISTRUZIONI PER COMPILARE LE VARIE CLASSI
 main.o:  main.cpp

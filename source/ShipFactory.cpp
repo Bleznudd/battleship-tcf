@@ -6,7 +6,7 @@ ShipFactory::ShipFactory(){
 ShipFactory::~ShipFactory(){
     
 }
-static bool create(Point pstart, Point pend, Player* currentp){
+bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
 
     bool creation=false;
     int len=0;

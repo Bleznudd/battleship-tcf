@@ -23,6 +23,7 @@ public:
     int getY();
     void setX(int);
     void setY(int);
+    char* getMark();
     void setMark(const char[3]);
     bool getHit();
     void setHit(bool);

@@ -10,7 +10,9 @@
 
 class Player{
 
-public:
+friend class ShipFactory;
+
+private:
 
 	static int counter;
 	int shipnum;
@@ -31,7 +33,6 @@ public:
 	void Deploy();
 	void Draw();
 	void Attack(Player&);
-	friend class ShipFactory;
 
 };
 

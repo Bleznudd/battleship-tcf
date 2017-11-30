@@ -11,7 +11,7 @@ void up(){
     //     cout << "\x1b[A";            //quest'istruzione posiziona il cursore una riga in su
     // };
     //visto che non so ancora quanto in su devo spostare, per i test utilizzo un clear
-    cout << "\x1b[2J" ;                 //quest'istruzione fa un clear del teminale  
+    //cout << "\x1b[2J" ;                 //quest'istruzione fa un clear del teminale  
 }
 
 int main(){

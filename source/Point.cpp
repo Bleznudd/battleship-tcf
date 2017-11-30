@@ -8,6 +8,9 @@ Point::Point(int x_, int y_){
     y = y_;
     hit = false;
     shippoint = false;
+    mark[0] = '[';
+    mark[1] = ' ';
+    mark[2] = ']';
 }
 Point::~Point(){
 
@@ -23,6 +26,14 @@ int Point::getX(){
 }
 int Point::getY(){
     return y;
+}
+char* Point::getMark(){
+    return mark;
+}
+void Point::setMark(const char mark_[3]){
+    mark[0] = mark_[0];
+    mark[1] = mark_[1];
+    mark[2] = mark_[2];
 }
 bool Point::getHit(){
     return hit;
