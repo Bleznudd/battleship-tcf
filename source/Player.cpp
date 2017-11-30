@@ -13,6 +13,13 @@ Player::Player(){
     size = 10;
     shipnum=1;
     counter++;
+    for(int i=0;i<=size;i++){
+        for(int j=0;j<=size;j++){
+            vector<Point> vect;
+            vect.push_back(Point(i,j));
+            map.push_back(vect);
+        }
+    }
     cout << "Nome giocatore " << counter << ": ";
     cin >> name;
 }
@@ -45,7 +52,10 @@ void Player::Deploy(){
     }
 }
 void Player::Draw(){
-    for(vector<vector<Point> >::iterator i=map.begin(); i!=map.end(); i++){
+    //cout << "Draw" << endl;
+    vector<vector<Point> >::iterator i;
+    for(i=map.begin(); i!=map.end(); i++){
+        //cout << "riga";
         for(vector<Point>::iterator j=i->begin(); j!=i->end(); j++){
             cout << j->getMark()[0];  
             cout << j->getMark()[1];   
