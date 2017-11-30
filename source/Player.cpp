@@ -18,7 +18,11 @@ Player::Player(){
         for(int j=0;j<=size;j++){
             vect.push_back(Point(i,j));
         }
+        char ch[] = {' ','1','2','3','4','5','6','7','8','9','X'};
+        char pos[3]={' ',ch[i],' '};
+        vect[0].setMark(pos);
         map.push_back(vect);
+        map[0][i].setMark(pos);
     }
     cout << "Nome giocatore " << counter << ": ";
     cin >> name;
