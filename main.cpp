@@ -4,16 +4,9 @@
 #include "./header/Point.h"
 #include "./header/Player.h"
 #include "./header/Ship.h"
+#include "./header/Graphic.h"
 using namespace std;
-
-void up(){
-    // for(int i=0; i <10; i++){        //probabilmente è necessario un size+ qualcosa per cancellare tutto 
-    //     cout << "\x1b[A";            //quest'istruzione posiziona il cursore una riga in su
-    // };
-    //visto che non so ancora quanto in su devo spostare, per i test utilizzo un clear
-    //cout << "\x1b[2J" ;                 //quest'istruzione fa un clear del teminale  
-}
-
+using graphic::up;
 
 int main(){
 
@@ -25,6 +18,7 @@ int main(){
     //CREAZIONE DEI GIOCATORI
     Player *p1 = new Player();
     Player *p2 = new Player();
+    graphic::up(2);
 
     //CREAZIONE DELLE FLOTTE
     p1->Deploy();
@@ -33,7 +27,6 @@ int main(){
     //TURNI DI GIOCO
     bool thisturn = false;
     while(Player::getSomewinner() == false){
-        up();
         if(thisturn == false){
             p1->Draw();
             p1->Attack(*p2);
@@ -44,6 +37,7 @@ int main(){
             p2->Attack(*p1);
             thisturn = false;
         }
+        graphic::up(14);
     };
 
     //DECRETAMENTO DEL VINCITORE
