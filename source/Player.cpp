@@ -1,13 +1,17 @@
 #include "../header/Player.h"
+#include "../header/ShipFactory.h"
 
 using namespace std;
 
 int Player::counter=0;
+bool Player::somewinner=false;
 
 Player::Player(string name_){
     name = name_;
 }
 Player::Player(){
+    size = 10;
+    shipnum=1;
     counter++;
     cout << "Nome giocatore " << counter << ": ";
     cin >> name;
@@ -25,6 +29,7 @@ void Player::SubstractShipnum(){
     shipnum--;
 }
 void Player::Deploy(){
+    cout << "Schieramento della flotta del giocatore " << name << ": " <<endl;
     while(shipnum > 0){
         Point pi, pf;
         cout << "Inserisci il punto iniziale della tua nave: ";
@@ -40,14 +45,17 @@ void Player::Deploy(){
     }
 }
 void Player::Draw(){
-    for(unsigned int i=0; i<size; i++){
-        for(unsigned int j=0; j<size; j++){
-            cout << map[i][j];   
+    for(vector<vector<Point> >::iterator i=map.begin(); i!=map.end(); i++){
+        for(vector<Point>::iterator j=i->begin(); j!=i->end(); j++){
+            cout << j->getMark()[0];  
+            cout << j->getMark()[1];   
+            cout << j->getMark()[2];    
         };
         cout << endl;
     }
 }
 void Player::Attack(Player &player){
+    cout << "Turno del giocatore " << name << ": " <<endl;    
     Point attackpoint;
     cout << "Inserisci il punto che desideri attaccare: ";
     cin >> attackpoint;

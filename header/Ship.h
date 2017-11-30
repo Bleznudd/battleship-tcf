@@ -10,7 +10,9 @@ using namespace std;
 
 class Ship{
 
-protected:
+friend class ShipFactory;
+
+private:
 
     int lenght;
     vector<Point*> OccupiedPoints;
@@ -19,7 +21,6 @@ public:
     
     Ship();
     ~Ship();
-    friend class ShipFactory;
 
 };
 
