@@ -18,6 +18,7 @@ int main(){
 
     //PRESENTAZIONE DEL GIOCO
     cout << "\x1b[2J" ;                 //quest'istruzione fa un clear del teminale
+    cout << "\x1b[;H";                  //quest'istruzione posiziona il cursore in alto a sinistra
     cout << "--- Benvenuti ---" << endl;
 
     //CREAZIONE DEI GIOCATORI
