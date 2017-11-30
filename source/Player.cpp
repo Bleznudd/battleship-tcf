@@ -14,11 +14,11 @@ Player::Player(){
     shipnum=1;
     counter++;
     for(int i=0;i<=size;i++){
+        vector<Point> vect;
         for(int j=0;j<=size;j++){
-            vector<Point> vect;
             vect.push_back(Point(i,j));
-            map.push_back(vect);
         }
+        map.push_back(vect);
     }
     cout << "Nome giocatore " << counter << ": ";
     cin >> name;
