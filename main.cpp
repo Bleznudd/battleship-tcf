@@ -39,7 +39,6 @@ int main(){
             p2->Attack(*p1);
             thisturn = false;
         }
-        graphic::up(14);
     };
 
     //DECRETAMENTO DEL VINCITORE

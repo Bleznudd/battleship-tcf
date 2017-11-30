@@ -102,4 +102,5 @@ void Player::Attack(Player &player){
             } 
         }
     }
+    graphic::up(14);
 }
