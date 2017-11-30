@@ -65,10 +65,10 @@ void Player::Deploy(){
 }
 void Player::Draw(){
     vector<vector<Point> >::iterator i;
-    cout << "   0  1  2  3  4  5  6  7  8  9 " << endl;
+    cout << "                       0  1  2  3  4  5  6  7  8  9 " << endl;
     int riga=0;
     for(i=map.begin(); i!=map.end(); i++){
-        cout << riga << " ";
+        cout << "                    " <<riga << " ";
         for(vector<Point>::iterator j=i->begin(); j!=i->end(); j++){
             cout << j->getMark()[0];  
             cout << j->getMark()[1];   
@@ -76,6 +76,7 @@ void Player::Draw(){
         };
         cout << endl;
     }
+    cout << endl;
 }
 void Player::Attack(Player &player){
     cout << "Turno del giocatore " << player.getName() << ": " <<endl;    
@@ -106,5 +107,5 @@ void Player::Attack(Player &player){
             } 
         }
     }
-    graphic::up(14);
+    graphic::up(15);
 }

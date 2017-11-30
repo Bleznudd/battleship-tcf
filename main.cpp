@@ -15,12 +15,18 @@ int main(){
     //PRESENTAZIONE DEL GIOCO
     graphic::clear();
     graphic::gohome();
-    cout << "--- Benvenuti ---" << endl;
+    cout << "        -------------------------------------------------------- " << endl;
+    cout << "       |                     BATTAGLIA NAVALE                   |" << endl;
+    cout << "        -------------------------------------------------------- " << endl;
+    cout << endl;
+    cout << "        ******************************************************** " << endl;
+    cout << " Benvenuti a battaglia navale, per cominciare inserite i nomi dei giocatori " << endl;
+    cout << endl;
 
     //CREAZIONE DEI GIOCATORI
     Player *p1 = new Player();
     Player *p2 = new Player();
-    graphic::up(2);
+    graphic::up(5);
 
     //CREAZIONE DELLE FLOTTE
     p1->Deploy();
@@ -29,15 +35,15 @@ int main(){
     //TURNI DI GIOCO
     bool thisturn = false;
     while(Player::getSomewinner() == false){
-        if(thisturn == false){
+        if(thisturn == true){
             p1->Draw();
             p1->Attack(*p2);
-            thisturn = true;
+            thisturn = false;
         }
         else{
             p2->Draw();
             p2->Attack(*p1);
-            thisturn = false;
+            thisturn = true;
         }
     };
 
