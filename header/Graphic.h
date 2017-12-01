@@ -13,6 +13,8 @@ namespace graphic{
     void gohome();
 
     string color(char,string);     //also bold for better results
+    void waitUser();
+    void title(string);
 
 }
 

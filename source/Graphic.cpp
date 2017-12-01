@@ -36,4 +36,19 @@ namespace graphic{
         return new_s;
     }
 
+    void waitUser(){
+        cout << "(Premi ENTER per continuare)" << endl;
+        cin.ignore();
+        cin.ignore();
+    }
+
+    void title(string s){
+        cout << color('b',"        -------------------------------------------------------- ") << endl;
+        cout << color('b',"       |                   ") 
+             << color('g',s) 
+             << color('b',"                 |") << endl;
+        cout << color('b',"        -------------------------------------------------------- ") << endl;
+        cout << endl;
+    }
+
 }

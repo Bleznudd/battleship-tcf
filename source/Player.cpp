@@ -74,9 +74,7 @@ void Player::Deploy(){
         }
     }
     ShipFactory::restartCounters();
-    cout << "(Premi ENTER per continuare)" << endl;
-    cin.ignore();
-    cin.ignore();
+    graphic::waitUser();
     graphic::up(surpluslines+2);
 }
 void Player::Draw(){
@@ -137,8 +135,6 @@ void Player::Attack(Player &player){
     if(fleet.empty()==true){
         Player::somewinner=true;
     }
-    cout << "(Premi ENTER per continuare)" << endl;
-    cin.ignore();
-    cin.ignore();
+    graphic::waitUser();
     graphic::up(16+surpluslines+1);
 }
