@@ -9,17 +9,20 @@ using namespace std;
 using graphic::up;
 using graphic::clear;
 using graphic::gohome;
+using graphic::color;
 
 int main(){
 
     //PRESENTAZIONE DEL GIOCO
     graphic::clear();
     graphic::gohome();
-    cout << "        -------------------------------------------------------- " << endl;
-    cout << "       |                     BATTAGLIA NAVALE                   |" << endl;
-    cout << "        -------------------------------------------------------- " << endl;
+    cout << color('b',"        -------------------------------------------------------- ") << endl;
+    cout << color('b',"       |                   ") 
+         << color('g',"BATTAGLIA NAVALE") 
+         << color('b',"                 |") << endl;
+    cout << color('b',"        -------------------------------------------------------- ") << endl;
     cout << endl;
-    cout << "        ******************************************************** " << endl;
+    cout << "     ********************************************************** " << endl;
     cout << " Benvenuti a battaglia navale, per cominciare inserite i nomi dei giocatori " << endl;
     cout << endl;
 
