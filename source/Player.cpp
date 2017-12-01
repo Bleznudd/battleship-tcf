@@ -13,7 +13,7 @@ Player::Player(string name_){
 }
 Player::Player(){
     size = 9;
-    shipnum=1;
+    shipnum=10;
     counter++;
     for(int i=0;i<=size;i++){
         vector<Point> vect;

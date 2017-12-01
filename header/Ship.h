@@ -24,6 +24,7 @@ public:
     ~Ship();
     void setHit(Point&);
     bool checkSunk();
+    int getLenght();
 
 };
 

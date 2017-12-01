@@ -30,3 +30,7 @@ bool Ship::checkSunk(){
         return false;
     }
 }
+
+int Ship::getLenght(){
+    return lenght;
+}

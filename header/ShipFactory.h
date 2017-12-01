@@ -15,11 +15,20 @@ using namespace std;
 
 class ShipFactory{
 
+private:
+
+    static int destroyerCounter;
+    static int cruiserCounter;
+    static int battleshipCounter;
+    static int carrierCounter;
+
 public:
 
     ShipFactory();
     ~ShipFactory();
     static bool create(Point, Point, Player*);
+    void restartCounters();
+    static void deleteShip(Ship*);
 
 };
 
