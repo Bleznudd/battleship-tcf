@@ -16,12 +16,7 @@ int main(){
     //PRESENTAZIONE DEL GIOCO
     graphic::clear();
     graphic::gohome();
-    cout << color('b',"        -------------------------------------------------------- ") << endl;
-    cout << color('b',"       |                   ") 
-         << color('g',"BATTAGLIA NAVALE") 
-         << color('b',"                 |") << endl;
-    cout << color('b',"        -------------------------------------------------------- ") << endl;
-    cout << endl;
+    graphic::title("BATTAGLIA NAVALE");
     cout << "     ********************************************************** " << endl;
     cout << " Benvenuti a battaglia navale, per cominciare inserite i nomi dei giocatori " << endl;
     cout << endl;
