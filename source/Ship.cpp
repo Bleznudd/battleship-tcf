@@ -15,7 +15,7 @@ void Ship::setHit(Point &p){
         }
     }
 }
-void Ship::checkSunk(){
+bool Ship::checkSunk(){
     int nothit=0;
     for(vector<Point*>::iterator iter=OccupiedPoints.begin(); iter!=OccupiedPoints.end(); iter++){
         if((*iter)->getHit()==false){
@@ -24,5 +24,7 @@ void Ship::checkSunk(){
     }
     if(nothit==0){
         cout << " E affondato !";
+        return true;
     }
+    return false;
 }

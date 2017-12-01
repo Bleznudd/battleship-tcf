@@ -23,7 +23,7 @@ public:
     Ship();
     ~Ship();
     void setHit(Point&);
-    void checkSunk();
+    bool checkSunk();
 
 };
 
