@@ -31,7 +31,7 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
     switch(len){
         case 2:
             ShipFactory::destroyerCounter++;
-            if(ShipFactory::destroyerCounter<=4){
+            if(ShipFactory::destroyerCounter<=1){
                 ship = new Destroyer(pstart,pend);
                 cout << "Creato cacciatorpediniere" << endl;
                 creation=true;
@@ -42,7 +42,7 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
         break;
         case 3:
             ShipFactory::cruiserCounter++;
-            if(ShipFactory::cruiserCounter<=3){
+            if(ShipFactory::cruiserCounter<=1){
                 ship = new Cruiser(pstart,pend);
                 cout << "Creato incrociatore" << endl;
                 creation=true;
@@ -53,7 +53,7 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
         break;
         case 4:
             ShipFactory::battleshipCounter++;
-            if(ShipFactory::battleshipCounter<=2){
+            if(ShipFactory::battleshipCounter<=1){
                 ship = new Battleship(pstart,pend);
                 cout << "Creata nave da battaglia" << endl;
                 creation=true;

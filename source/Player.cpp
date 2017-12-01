@@ -13,7 +13,7 @@ Player::Player(string name_){
 }
 Player::Player(){
     size = 9;
-    shipnum=10;
+    shipnum=1;
     counter++;
     for(int i=0;i<=size;i++){
         vector<Point> vect;
@@ -51,9 +51,19 @@ void Player::Deploy(){
         n=n+3;
         Point pi, pf;
         cout << "Inserisci il punto iniziale della tua nave: ";
-        cin >> pi;
+        while(!(cin >> pi)) {
+            cin.clear();
+            cin.ignore(999,'\n');
+            cout<<"Il punto inserito non è valido, reinserirlo" << endl;
+            cout << "Inserisci il punto iniziale della tua nave: ";
+        }
         cout << "Inserisci il punto finale della tua nave: ";
-        cin >> pf;
+        while(!(cin >> pf)) {
+            cin.clear();
+            cin.ignore(999,'\n');
+            cout<<"Il punto inserito non è valido, reinserirlo" << endl;
+            cout << "Inserisci il punto finale della tua nave: ";
+        }
         if(ShipFactory::create(pi, pf, this) == true){
             SubstractShipnum();
         }
@@ -86,7 +96,12 @@ void Player::Attack(Player &player){
     cout << "Turno del giocatore " << player.getName() << ": " <<endl;    
     Point attackpoint;
     cout << "Inserisci il punto che desideri attaccare: ";
-    cin >> attackpoint;
+    while(!(cin >> attackpoint)) {
+        cin.clear();
+        cin.ignore(999,'\n');
+        cout<<"Il punto inserito non è valido, reinserirlo" << endl;
+        cout << "Inserisci il punto che desideri attaccare: ";
+    }
     for(vector<vector<Point> >::iterator i=map.begin(); i!=map.end(); i++){
         for(vector<Point>::iterator j=i->begin(); j!=i->end(); j++){
             if(*j==attackpoint && j->getHit()==false){
