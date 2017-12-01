@@ -93,7 +93,7 @@ void Player::Attack(Player &player){
                 if(j->getShippoint()==true){
                     j->setMark("[#]");
                     cout << "Colpito!";
-                    for(vector<Ship*>::iterator s=fleet.begin(); s!=fleet.end(); s++){
+                    for(vector<Ship*>::iterator s=fleet.begin(); s!=fleet.end() && fleet.empty()==false; s++){
                         (*s)->setHit(attackpoint);
                         if((*s)->checkSunk()==true){
                             fleet.erase(s);

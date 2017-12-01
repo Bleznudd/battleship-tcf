@@ -26,5 +26,7 @@ bool Ship::checkSunk(){
         cout << " E affondato !";
         return true;
     }
-    return false;
+    else{
+        return false;
+    }
 }
