@@ -1,4 +1,7 @@
 #include "../header/ShipFactory.h"
+#include "../header/Graphic.h"
+
+using graphic::up;
 
 ShipFactory::ShipFactory(){
 
@@ -46,14 +49,21 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
         break;
     }
     if(creation==true){ 
-        currentp->fleet.push_back(ship);
         vector<Point*>::iterator iter;
         for(iter=ship->OccupiedPoints.begin() ; iter!=ship->OccupiedPoints.end(); iter++){
             //(*iter)->setShippoint(true); //non va bene perchè i punti non fanno parte della griglia
             for(int i=0;i<=currentp->size;i++){
                 for(int j=0;j<=currentp->size;j++){
                     if(**iter==currentp->map[i][j]){
+                        if(currentp->map[i][j].getShippoint()==true){
+                            creation=false;
+                            delete ship;
+                            graphic::up(2);
+                            return creation;
+                        }
+                        else{
                         currentp->map[i][j].setShippoint(true);
+                        }
                     }
                     else{
 
@@ -61,6 +71,7 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
                 }
             }
         }
+        currentp->fleet.push_back(ship);
     }
     return creation;
 }
