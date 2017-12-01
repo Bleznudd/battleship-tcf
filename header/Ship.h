@@ -10,18 +10,22 @@ using namespace std;
 
 class Ship{
 
+friend class ShipFactory;
+
 protected:
-    int lenght=3;
-    vector<Point*> blocks;
+
+    int lenght;
+    bool sunk=false;
+    vector<Point*> OccupiedPoints;
 
 public:
+    
     Ship();
     ~Ship();
-    Ship(Point, Point);
-    vector<Point*> getBlocks();
-    
+    void setHit(Point&);
+    bool checkSunk();
+    int getLenght();
 
 };
 
 #endif
-

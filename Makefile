@@ -11,30 +11,31 @@ CFLAGS = -pipe -std=c++14 -O0 -pedantic -Wall -D$(DR)
 CPUCORES = 4
 
 all:
-	$(MAKE) -j $(CPUCORES) battlehsip-tcf
+	$(MAKE) -j $(CPUCORES) battleship-tcf
 
  #ISTRUZIONI PER L'ESEGUIBILE
-battleship-tcf:	main.o Battlehsip.o Carrier.o Cruiser.o Destroyer.o Ship.o Grid.o Player.o Point.o ShipFactory.o
-	 $(CXX) $(CFLAGS) main.o Battlehsip.o Carrier.o Cruiser.o Destroyer.o Ship.o Grid.o Player.o Point.o ShipFactory.o -o battlehsip-tcf
+battleship-tcf:	main.o Ship.o Player.o Point.o Battleship.o Carrier.o Cruiser.o Destroyer.o ShipFactory.o Graphic.o
+	 $(CXX) $(CFLAGS) main.o Ship.o Player.o Point.o Battleship.o Carrier.o Cruiser.o Destroyer.o ShipFactory.o Graphic.o -o battleship-tcf
 
  #ISTRUZIONI PER COMPILARE LE VARIE CLASSI
 main.o:  main.cpp
-	 $(CXX) $(CFLAGS) -c ./source/main.cpp
-Battleship.o:  Battleship.cpp
-	 $(CXX) $(CFLAGS) -c ./source/Battleship.cpp
-Carrier.o:  Carrier.cpp
-	 $(CXX) $(CFLAGS) -c ./source/Carrier.cpp
-Cruiser.o:  Cruiser.cpp
-	 $(CXX) $(CFLAGS) -c ./source/Cruiser.cpp
-Destroyer.o:  Destroyer.cpp
-	 $(CXX) $(CFLAGS) -c ./source/Destroyer.cpp
-Ship.o:  Ship.cpp
+	 $(CXX) $(CFLAGS) -c ./main.cpp
+Ship.o:  ./source/Ship.cpp
 	 $(CXX) $(CFLAGS) -c ./source/Ship.cpp
-Grid.o:  Grid.cpp
-	 $(CXX) $(CFLAGS) -c ./source/Grid.cpp
-Player.o:  Player.cpp
+Player.o:  ./source/Player.cpp
 	 $(CXX) $(CFLAGS) -c ./source/Player.cpp
-Point.o:  Point.cpp
+Point.o:  ./source/Point.cpp
 	 $(CXX) $(CFLAGS) -c ./source/Point.cpp
-ShipFactory.o:  ShipFactory.cpp
+Battleship.o:  ./source/Battleship.cpp
+	 $(CXX) $(CFLAGS) -c ./source/Battleship.cpp
+Carrier.o:  ./source/Carrier.cpp
+	 $(CXX) $(CFLAGS) -c ./source/Carrier.cpp
+Cruiser.o:  ./source/Cruiser.cpp
+	 $(CXX) $(CFLAGS) -c ./source/Cruiser.cpp
+Destroyer.o:  ./source/Destroyer.cpp
+	 $(CXX) $(CFLAGS) -c ./source/Destroyer.cpp
+ShipFactory.o: ./source/ShipFactory.cpp
 	 $(CXX) $(CFLAGS) -c ./source/ShipFactory.cpp
+Graphic.o: ./source/Graphic.cpp
+	 $(CXX) $(CFLAGS) -c ./source/Graphic.cpp
+	 

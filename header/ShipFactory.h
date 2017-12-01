@@ -9,18 +9,26 @@
 #include "Carrier.h"
 #include "Battleship.h"
 #include "Ship.h"
+#include "Player.h"
 
 using namespace std;
 
 class ShipFactory{
 
 private:
-    
+
+    static int destroyerCounter;
+    static int cruiserCounter;
+    static int battleshipCounter;
+    static int carrierCounter;
+
 public:
 
     ShipFactory();
     ~ShipFactory();
-    static Ship create(Point, Point);
+    static bool create(Point, Point, Player*);
+    void restartCounters();
+    static void deleteShip(Ship*);
 
 };
 

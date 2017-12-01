@@ -2,101 +2,59 @@
 
 #include <iostream>
 #include "./header/Point.h"
-#include "./header/Grid.h"
 #include "./header/Player.h"
 #include "./header/Ship.h"
-#include "./header/ShipFactory.h"
-
+#include "./header/Graphic.h"
 using namespace std;
-
-void up(){
-    for(int i=0; i <10+3+4+1; i++){     //probabilmente è necessario un size+ qualcosa per cancellare tutto 
-        cout << "\x1b[A"; //quest'istruzione posiziona il cursore una riga in su
-    };
-}
-
-void deploy(Player *player){
-    Point startp;
-    Point endp;
-    cout << "Schieramento della flotta del giocatore " << player->getName() << endl;
-    while(player->getGrid()->getShipNum()>0){
-        //player->getGrid()->DrawShips();
-        cout << "Inserisci posizione inziale della nave ((x,y) due interi separati da una virgola): ";
-        cin >> startp;
-        cout << "Inserisci posizione finale della nave ((x,y) due interi separati da una virgola): ";
-        cin >> endp;
-        //per il momento trasformo la classe astratta ship in una reale e faccio a meno della factory
-        //per verificare il funzionamento delle altre componenti
-        //player->getGrid().Deploy(ShipFactory::create(Point(startp), Point(endp));
-        player->getGrid()->Deploy(new Ship(&startp,&endp));
-        player->getGrid()->subtractShipNum();
-        // cout << player->getGrid()->getShipNum() << endl;
-        //player->getGrid()->DrawShips();
-        cout << endl;
-    }
-    cout << endl;
-}
+using graphic::up;
+using graphic::clear;
+using graphic::gohome;
 
 int main(){
 
-    //bool Player::winning = false;
-    bool test = false;
+    //PRESENTAZIONE DEL GIOCO
+    graphic::clear();
+    graphic::gohome();
+    cout << "        -------------------------------------------------------- " << endl;
+    cout << "       |                     BATTAGLIA NAVALE                   |" << endl;
+    cout << "        -------------------------------------------------------- " << endl;
+    cout << endl;
+    cout << "        ******************************************************** " << endl;
+    cout << " Benvenuti a battaglia navale, per cominciare inserite i nomi dei giocatori " << endl;
+    cout << endl;
 
-    /*
-     *Presentazione del gioco
-    */
-    cout << "\x1b[2J"; //quest'istruzione fa un clear del terminale
-    cout << "\x1b[;H"; //quest'istruzione posiziona il cursore in alto a sinistra
-    cout << "##############" << endl;
-
-    /*
-     *Caricamento giocatori
-    */
+    //CREAZIONE DEI GIOCATORI
     Player *p1 = new Player();
     Player *p2 = new Player();
+    graphic::up(5);
 
-    /*
-     *Schieramento flotte
-    */
-    deploy(p1);
-    deploy(p2);
-    cout << endl << endl;
-    cout << endl << endl;
-    cout << endl << endl;
+    //CREAZIONE DELLE FLOTTE
+    p1->Deploy();
+    p2->Deploy();
 
-
-    /*
-     *Gioco
-    */
-    bool thisround = false;
-    for(int i =0; i<10; i++){
-        cout << endl;
-    }
-    //while(Player::getWinning()==false){
-    while(test==false){
-        if(thisround == false){
-            up();
-            cout << "Turno del giocatore " <<  p1->getName() << endl;
-            p2->getGrid()->Draw();
-            p2->Attacked();
-            thisround = true;
+    //TURNI DI GIOCO
+    bool thisturn = false;
+    while(Player::getSomewinner() == false){
+        if(thisturn == true){
+            p1->Draw();
+            p1->Attack(*p2);
+            thisturn = false;
         }
         else{
-            up();
-            cout << "Turno del giocatore " <<  p2->getName() << endl;
-            p1->getGrid()->Draw();
-            p1->Attacked();
-            thisround = false;
+            p2->Draw();
+            p2->Attack(*p1);
+            thisturn = true;
         }
-    }
+    };
 
-    if(thisround == false){
-        cout << endl << "Complimenti " << p1->getName()  << " ! Hai vinto " << endl;
+    //DECRETAMENTO DEL VINCITORE
+    if(thisturn == false){
+        cout << "Complimenti " << p2->getName() << ", hai vinto!" << endl;
     }
     else{
-        cout << endl << "Complimenti " << p2->getName()  << " ! Hai vinto " << endl;
+        cout << "Complimenti " << p1->getName() << ", hai vinto!" << endl;
     }
-
+    
     delete p1;
     delete p2;
 
