@@ -98,7 +98,9 @@ void Player::Attack(Player &player){
 
                     for(vector<Ship*>::iterator s=fleet.begin(); s!=fleet.end(); s++){
                         (*s)->setHit(attackpoint);
-                        (*s)->checkSunk();
+                        if((*s)->checkSunk()==true){
+                            fleet.erase(s);
+                        }
                     }
                 }
                 else{
@@ -117,6 +119,9 @@ void Player::Attack(Player &player){
                 Attack(player);
             } 
         }
+    }
+    if(fleet.empty()==true){
+        Player::somewinner=true;
     }
     graphic::up(16);
 }
