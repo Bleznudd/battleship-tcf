@@ -27,7 +27,7 @@ public:
     ShipFactory();
     ~ShipFactory();
     static bool create(Point, Point, Player*);
-    void restartCounters();
+    static void restartCounters();
     static void deleteShip(Ship*);
 
 };

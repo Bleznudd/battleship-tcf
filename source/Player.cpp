@@ -61,6 +61,7 @@ void Player::Deploy(){
             cout << "L' intervallo di punti non corrisponde a nessun tipo di nave, riprovare" << endl;
         }
     }
+    ShipFactory::restartCounters();
     cin.ignore();
     cin.ignore();
     graphic::up(n+1);
