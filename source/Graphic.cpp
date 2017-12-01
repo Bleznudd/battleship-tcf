@@ -17,5 +17,23 @@ namespace graphic{
     void gohome(){
         cout << "\x1b[;H";
     }
-    
+    string color(char color,string s){
+        string new_s;
+        switch(color){
+            case('r'):
+                new_s = "\033[1;31m " + s + " \033[0m";
+            break;
+            case('g'):
+                new_s = "\033[1;32m " + s + " \033[0m";
+            break;
+            case('y'):
+                new_s = "\033[1;33m " + s + " \033[0m";
+            break;
+            case('b'):
+                new_s = "\033[1;34m " + s + " \033[0m";
+            break;
+        }
+        return new_s;
+    }
+
 }
