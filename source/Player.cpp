@@ -124,10 +124,12 @@ void Player::Attack(Player &player){
                     cout << "Mancato!";
                 }
                 cout << endl;
+                graphic::waitUser();
+                graphic::up(16+surpluslines+1);
             }
             else if(*j==attackpoint && j->getHit()==true){
-                cout << "Punto già inserito, provane un altro." << endl;
-                graphic::up(4);
+                graphic::up(2);
+                cout << "Punto già inserito, provane un altro. ";
                 Attack(player);
             } 
         }
@@ -135,6 +137,4 @@ void Player::Attack(Player &player){
     if(fleet.empty()==true){
         Player::somewinner=true;
     }
-    graphic::waitUser();
-    graphic::up(16+surpluslines+1);
 }
