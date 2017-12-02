@@ -24,11 +24,9 @@ bool Ship::checkSunk(){
     }
     if(nothit==0){
         cout << " E affondato !";
-        return true;
+        sunk = true;
     }
-    else{
-        return false;
-    }
+    return sunk;
 }
 
 int Ship::getLenght(){
