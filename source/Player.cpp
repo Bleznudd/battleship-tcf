@@ -13,7 +13,7 @@ Player::Player(string name_){
 }
 Player::Player(){
     size = 9;
-    shipnum=1;
+    shipnum=2;
     counter++;
     for(int i=0;i<=size;i++){
         vector<Point> vect;
@@ -46,9 +46,10 @@ void Player::SubstractShipnum(){
 }
 void Player::Deploy(){
     cout << "Schieramento della flotta del giocatore " << name << ": " <<endl;
-    int surpluslines=1;
     while(shipnum > 0){
-        surpluslines+=3;
+        this->fleetVisible(true);
+        this->Draw();
+        int surpluslines=11;
         Point pi, pf;
         cout << "Inserisci il punto iniziale della tua nave: ";
         while(!(cin >> pi)) {
@@ -72,10 +73,12 @@ void Player::Deploy(){
         else{
             cout << "L' intervallo di punti non corrisponde a nessun tipo di nave, riprovare" << endl;
         }
+        graphic::waitUser();
+        graphic::up(surpluslines+6);
     }
+    this->fleetVisible(false);
     ShipFactory::restartCounters();
-    graphic::waitUser();
-    graphic::up(surpluslines+2);
+    graphic::up(2);
 }
 void Player::Draw(){
     vector<vector<Point> >::iterator i;
@@ -137,4 +140,23 @@ void Player::Attack(Player &player){
     }
     graphic::waitUser();
     graphic::up(16+surpluslines+1);
+}
+
+void Player::fleetVisible(bool visible){
+    if(visible==true){
+        for(int i=0;i<size;i++){
+            for(int j=0;j<size;j++){
+                if(map[i][j].getShippoint()==true){
+                    map[i][j].setMark("[0]");
+                }
+            }
+        }
+    }
+    else if(visible==false){
+        for(int i=0;i<size;i++){
+            for(int j=0;j<size;j++){
+                map[i][j].setMark("[ ]");
+            }
+        }
+    }
 }

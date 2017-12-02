@@ -33,6 +33,7 @@ public:
 	void Deploy();
 	void Draw();
 	void Attack(Player&);
+	void fleetVisible(bool visible);
 
 };
 
