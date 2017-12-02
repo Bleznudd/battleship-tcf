@@ -17,7 +17,7 @@ int main(){
     graphic::clear();
     graphic::gohome();
     graphic::title("BATTAGLIA NAVALE");
-    cout << "     ********************************************************** " << endl;
+    cout << "        ********************************************************** " << endl;
     cout << " Benvenuti a battaglia navale, per cominciare inserite i nomi dei giocatori " << endl;
     cout << endl;
 
@@ -27,30 +27,30 @@ int main(){
     graphic::up(5);
 
     //ISTRUZIONI
-    cout << "     ************************* ISTRUZIONI ************************* " << endl
-         << "Generali" << endl
-         << "     Il gioco si svoglie in una griglia 10x10 caselle numerate 0-9." << endl
-         << "     Una posizione va indicata con 2 numeri sparati da virgola (y,x)." << endl
-         << "Legenda" << endl
-         << "     cacciatorpediniere = nave da 2 caselle" << endl
-         << "        incrociatore    = nave da 3 caselle" << endl
-         << "      nave da battaglia = nave da 4 caselle" << endl
-         << "         portaerei      = nave da 5 caselle" << endl
-         << "            [ ]         = casella base" << endl
-         << "            [-]         = casella mancata" << endl
-         << "            [#]         = casella colpita" << endl
-         << "            [0]         = casella occupata da una nave" << endl
-         << "Fase 1: Schieramento" << endl
-         << "     Ogni giocatore deve posizionare 4 cacciatorpedinieri, 3 incrociatori" << endl
-         << "     2 navi da battaglia e 1 portaerei. Una volta posizionate tutte le navi" << endl
-         << "     tocca all'altro giocatore." << endl
-         << "Fase 2: Gioco" << endl
-         << "     A turno i giocatori idicano una posizione in cui sparare ricevendo" << endl
-         << "     come risposta un messaggio (colpito o mancato ed eventualmente affondato)." << endl
-         << "     Quando un giocatore affonda tutte le navi avversarie è dichiarato vincitore" << endl
+    cout << "       ************************* ISTRUZIONI ************************ " << endl
+         << "Generali:" << endl << endl
+         << "           Il gioco si svoglie in una griglia 10x10 caselle numerate 0-9." << endl
+         << "           Una posizione va indicata con 2 numeri sparati da virgola (y,x)." << endl
+         << "Legenda:" << endl << endl
+         << "           cacciatorpediniere = nave da 2 caselle" << endl
+         << "              incrociatore    = nave da 3 caselle" << endl
+         << "            nave da battaglia = nave da 4 caselle" << endl
+         << "               portaerei      = nave da 5 caselle" << endl
+         << "                  [ ]         = casella base" << endl
+         << "                  [-]         = casella mancata" << endl
+         << "                  [#]         = casella colpita" << endl
+         << "                  [0]         = casella occupata da una nave" << endl
+         << "Schieramento:" << endl << endl
+         << "           Ogni giocatore deve posizionare 4 cacciatorpedinieri, 3 incrociatori" << endl
+         << "           2 navi da battaglia e 1 portaerei. Una volta posizionate tutte le navi" << endl
+         << "           tocca all'altro giocatore." << endl
+         << "Gioco:" << endl << endl
+         << "           A turno i giocatori idicano una posizione in cui sparare ricevendo" << endl
+         << "           come risposta un messaggio (colpito o mancato ed eventualmente affondato)." << endl
+         << "           Quando un giocatore affonda tutte le navi avversarie è dichiarato vincitore" << endl
          << endl;
     graphic::waitUser();
-    graphic::up(24);
+    graphic::up(28);
     
     //CREAZIONE DELLE FLOTTE
     p1->Deploy();

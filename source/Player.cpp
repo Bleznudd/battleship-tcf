@@ -13,7 +13,11 @@ Player::Player(string name_){
 }
 Player::Player(){
     size = 9;
-    shipnum=2;
+    shipnum[1]=1;      //numero navi da 2
+    shipnum[2]=0;      //numero navi da 3
+    shipnum[3]=0;      //numero navi da 4
+    shipnum[4]=0;      //numero navi da 5
+    shipnum[0]=shipnum[1]+shipnum[2]+shipnum[3]+shipnum[4];      //numero totale di navi
     counter++;
     for(int i=0;i<=size;i++){
         vector<Point> vect;
@@ -35,11 +39,11 @@ bool Player::getSomewinner(){
     return somewinner;
 }
 void Player::SubstractShipnum(){
-    shipnum--;
+    shipnum[0]--;
 }
 void Player::Deploy(){
     cout << "Schieramento della flotta del giocatore " << name << ": " << endl << endl;
-    while(shipnum > 0){
+    while(shipnum[0] > 0){
         fleetVisible(true);
         Draw();
         int surpluslines=11;
@@ -70,7 +74,7 @@ void Player::Deploy(){
         graphic::up(surpluslines+6);
     }
     fleetVisible(false);
-    ShipFactory::restartCounters();
+    //ShipFactory::restartCounters();
     graphic::up(2);
 }
 void Player::Draw(){

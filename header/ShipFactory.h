@@ -17,18 +17,18 @@ class ShipFactory{
 
 private:
 
-    static int destroyerCounter;
-    static int cruiserCounter;
-    static int battleshipCounter;
-    static int carrierCounter;
+    // static int destroyerCounter;
+    // static int cruiserCounter;
+    // static int battleshipCounter;
+    // static int carrierCounter;
 
 public:
 
     ShipFactory();
     ~ShipFactory();
     static bool create(Point, Point, Player*);
-    static void restartCounters();
-    static void deleteShip(Ship*);
+    // static void restartCounters();
+    // static void deleteShip(Ship*);
 
 };
 
