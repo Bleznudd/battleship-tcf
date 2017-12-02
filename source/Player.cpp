@@ -13,13 +13,20 @@ Player::Player(string name_){
 }
 Player::Player(){
     size = 9;
-    shipnum=2;
+    shipnum=10;
     counter++;
     for(int i=0;i<=size;i++){
         vector<Point> vect;
         for(int j=0;j<=size;j++){
             vect.push_back(Point(i,j));
         }
+        // char ch[] = {' ','1','2','3','4','5','6','7','8','9','X'};
+        // char pos[3]={' ',ch[i],' '};
+        // vect[0].setMark(pos);
+        // map[0][i].setMark(pos);
+        // 
+        // per evitare gli errori con l'attack() su 0,0 suppongo sia meglio inserire una legenda nella 
+        // Draw(), vedi sotto
         map.push_back(vect);
     }
     cout << "Nome giocatore " << counter << ": ";
@@ -38,10 +45,10 @@ void Player::SubstractShipnum(){
     shipnum--;
 }
 void Player::Deploy(){
-    cout << "Schieramento della flotta del giocatore " << name << ": " <<endl << endl;
+    cout << "Schieramento della flotta del giocatore " << name << ": " <<endl;
     while(shipnum > 0){
-        fleetVisible(true);
-        Draw();
+        this->fleetVisible(true);
+        this->Draw();
         int surpluslines=11;
         Point pi, pf;
         cout << "Inserisci il punto iniziale della tua nave: ";
@@ -68,9 +75,8 @@ void Player::Deploy(){
         }
         graphic::waitUser();
         graphic::up(surpluslines+6);
-        surpluslines-=2;
     }
-    fleetVisible(false);
+    this->fleetVisible(false);
     ShipFactory::restartCounters();
     graphic::up(2);
 }
@@ -134,11 +140,14 @@ void Player::Attack(Player &player){
     if(fleet.empty()==true){
         Player::somewinner=true;
     }
+    graphic::waitUser();
+    graphic::up(16+surpluslines+1);
 }
+
 void Player::fleetVisible(bool visible){
     if(visible==true){
-        for(int i=0;i<size;i++){
-            for(int j=0;j<size;j++){
+        for(int i=0;i<=size;i++){
+            for(int j=0;j<=size;j++){
                 if(map[i][j].getShippoint()==true){
                     map[i][j].setMark("[0]");
                 }
@@ -146,8 +155,8 @@ void Player::fleetVisible(bool visible){
         }
     }
     else if(visible==false){
-        for(int i=0;i<size;i++){
-            for(int j=0;j<size;j++){
+        for(int i=0;i<=size;i++){
+            for(int j=0;j<=size;j++){
                 map[i][j].setMark("[ ]");
             }
         }
