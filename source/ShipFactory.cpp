@@ -81,8 +81,8 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
         vector<Point*>::iterator iter;
         for(iter=ship->OccupiedPoints.begin() ; iter!=ship->OccupiedPoints.end(); iter++){
             //(*iter)->setShippoint(true); //non va bene perchè i punti non fanno parte della griglia
-            for(int i=0;i<=currentp->size;i++){
-                for(int j=0;j<=currentp->size;j++){
+            for(int i=0;i<currentp->size;i++){
+                for(int j=0;j<currentp->size;j++){
                     if(**iter==currentp->map[i][j]){
                         if(currentp->map[i][j].getShippoint()==true){
                             creation=false;
