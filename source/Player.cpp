@@ -38,10 +38,10 @@ void Player::SubstractShipnum(){
     shipnum--;
 }
 void Player::Deploy(){
-    cout << "Schieramento della flotta del giocatore " << name << ": " <<endl;
+    cout << "Schieramento della flotta del giocatore " << name << ": " <<endl << endl;
     while(shipnum > 0){
-        this->fleetVisible(true);
-        this->Draw();
+        fleetVisible(true);
+        Draw();
         int surpluslines=11;
         Point pi, pf;
         cout << "Inserisci il punto iniziale della tua nave: ";
@@ -68,8 +68,9 @@ void Player::Deploy(){
         }
         graphic::waitUser();
         graphic::up(surpluslines+6);
+        surpluslines-=2;
     }
-    this->fleetVisible(false);
+    fleetVisible(false);
     ShipFactory::restartCounters();
     graphic::up(2);
 }
