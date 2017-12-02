@@ -20,13 +20,6 @@ Player::Player(){
         for(int j=0;j<=size;j++){
             vect.push_back(Point(i,j));
         }
-        // char ch[] = {' ','1','2','3','4','5','6','7','8','9','X'};
-        // char pos[3]={' ',ch[i],' '};
-        // vect[0].setMark(pos);
-        // map[0][i].setMark(pos);
-        // 
-        // per evitare gli errori con l'attack() su 0,0 suppongo sia meglio inserire una legenda nella 
-        // Draw(), vedi sotto
         map.push_back(vect);
     }
     cout << "Nome giocatore " << counter << ": ";
@@ -140,12 +133,7 @@ void Player::Attack(Player &player){
     if(fleet.empty()==true){
         Player::somewinner=true;
     }
-<<<<<<< HEAD
-=======
-    graphic::waitUser();
-    graphic::up(16+surpluslines+1);
 }
-
 void Player::fleetVisible(bool visible){
     if(visible==true){
         for(int i=0;i<size;i++){
@@ -163,5 +151,4 @@ void Player::fleetVisible(bool visible){
             }
         }
     }
->>>>>>> 0568410d695741cf48b20ba0c290559a2b90ac4a
 }
