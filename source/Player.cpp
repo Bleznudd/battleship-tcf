@@ -68,7 +68,6 @@ void Player::Deploy(){
         }
         graphic::waitUser();
         graphic::up(surpluslines+6);
-        surpluslines-=2;
     }
     fleetVisible(false);
     ShipFactory::restartCounters();
@@ -91,7 +90,7 @@ void Player::Draw(){
     cout << endl;
 }
 void Player::Attack(Player &player){
-    cout << "Turno del giocatore " << player.getName() << ": " <<endl;    
+    cout << "Turno del giocatore " << player.getName() << endl;    
     Point attackpoint;
     cout << "Inserisci il punto che desideri attaccare: ";
     int surpluslines = 0;
@@ -122,7 +121,7 @@ void Player::Attack(Player &player){
                 }
                 cout << endl;
                 graphic::waitUser();
-                graphic::up(16+surpluslines+1);
+                graphic::up(17+surpluslines);
             }
             else if(*j==attackpoint && j->getHit()==true){
                 graphic::up(2);
