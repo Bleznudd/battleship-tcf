@@ -13,20 +13,17 @@ Player::Player(string name_){
 }
 Player::Player(){
     size = 9;
-    shipnum=10;
+    shipnum[1]=1;      //numero navi da 2
+    shipnum[2]=0;      //numero navi da 3
+    shipnum[3]=0;      //numero navi da 4
+    shipnum[4]=0;      //numero navi da 5
+    shipnum[0]=shipnum[1]+shipnum[2]+shipnum[3]+shipnum[4];      //numero totale di navi
     counter++;
     for(int i=0;i<=size;i++){
         vector<Point> vect;
         for(int j=0;j<=size;j++){
             vect.push_back(Point(i,j));
         }
-        // char ch[] = {' ','1','2','3','4','5','6','7','8','9','X'};
-        // char pos[3]={' ',ch[i],' '};
-        // vect[0].setMark(pos);
-        // map[0][i].setMark(pos);
-        // 
-        // per evitare gli errori con l'attack() su 0,0 suppongo sia meglio inserire una legenda nella 
-        // Draw(), vedi sotto
         map.push_back(vect);
     }
     cout << "Nome giocatore " << counter << ": ";
@@ -42,28 +39,43 @@ bool Player::getSomewinner(){
     return somewinner;
 }
 void Player::SubstractShipnum(){
-    shipnum--;
+    shipnum[0]--;
 }
 void Player::Deploy(){
-    cout << "Schieramento della flotta del giocatore " << name << ": " <<endl;
-    int n=1;
-    while(shipnum > 0){
-        n=n+3;
+    cout << "Schieramento della flotta del giocatore " << name << ": " << endl << endl;
+    while(shipnum[0] > 0){
+        fleetVisible(true);
+        Draw();
+        int surpluslines=11;
         Point pi, pf;
         cout << "Inserisci il punto iniziale della tua nave: ";
-        cin >> pi;
+        while(!(cin >> pi)) {
+            cin.clear();
+            cin.ignore(999,'\n');
+            cout<<"Il punto inserito non è valido, reinserirlo" << endl;
+            cout << "Inserisci il punto iniziale della tua nave: ";
+            surpluslines+=2;
+        }
         cout << "Inserisci il punto finale della tua nave: ";
-        cin >> pf;
+        while(!(cin >> pf)) {
+            cin.clear();
+            cin.ignore(999,'\n');
+            cout<<"Il punto inserito non è valido, reinserirlo" << endl;
+            cout << "Inserisci il punto finale della tua nave: ";
+            surpluslines+=2;
+        }
         if(ShipFactory::create(pi, pf, this) == true){
             SubstractShipnum();
         }
         else{
             cout << "L' intervallo di punti non corrisponde a nessun tipo di nave, riprovare" << endl;
         }
+        graphic::waitUser();
+        graphic::up(surpluslines+6);
     }
-    cin.ignore();
-    cin.ignore();
-    graphic::up(n+1);
+    fleetVisible(false);
+    //ShipFactory::restartCounters();
+    graphic::up(2);
 }
 void Player::Draw(){
     vector<vector<Point> >::iterator i;
@@ -82,10 +94,17 @@ void Player::Draw(){
     cout << endl;
 }
 void Player::Attack(Player &player){
-    cout << "Turno del giocatore " << player.getName() << ": " <<endl;    
+    cout << "Turno del giocatore " << player.getName() << endl;    
     Point attackpoint;
     cout << "Inserisci il punto che desideri attaccare: ";
-    cin >> attackpoint;
+    int surpluslines = 0;
+    while(!(cin >> attackpoint)) {
+        cin.clear();
+        cin.ignore(999,'\n');
+        cout<<"Il punto inserito non è valido, reinserirlo" << endl;
+        cout << "Inserisci il punto che desideri attaccare: ";
+        surpluslines+=2;
+    }
     for(vector<vector<Point> >::iterator i=map.begin(); i!=map.end(); i++){
         for(vector<Point>::iterator j=i->begin(); j!=i->end(); j++){
             if(*j==attackpoint && j->getHit()==false){
@@ -99,22 +118,18 @@ void Player::Attack(Player &player){
                             fleet.erase(s);
                         }
                     }
-                    cin.ignore();
-                    cin.ignore();
                 }
                 else{
                     j->setMark("[-]");
                     cout << "Mancato!";
-                    cin.ignore();
-                    cin.ignore();
                 }
                 cout << endl;
+                graphic::waitUser();
+                graphic::up(17+surpluslines);
             }
             else if(*j==attackpoint && j->getHit()==true){
-                cout << "Punto già inserito, provane un altro." << endl;
-                cin.ignore();
-                cin.ignore();
-                graphic::up(4);
+                graphic::up(2);
+                cout << "Punto già inserito, provane un altro. ";
                 Attack(player);
             } 
         }
@@ -122,5 +137,23 @@ void Player::Attack(Player &player){
     if(fleet.empty()==true){
         Player::somewinner=true;
     }
-    graphic::up(16);
+}
+
+void Player::fleetVisible(bool visible){
+    if(visible==true){
+        for(int i=0;i<=size;i++){
+            for(int j=0;j<=size;j++){
+                if(map[i][j].getShippoint()==true){
+                    map[i][j].setMark("[0]");
+                }
+            }
+        }
+    }
+    else if(visible==false){
+        for(int i=0;i<=size;i++){
+            for(int j=0;j<=size;j++){
+                map[i][j].setMark("[ ]");
+            }
+        }
+    }
 }

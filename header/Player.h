@@ -15,7 +15,7 @@ friend class ShipFactory;
 private:
 
 	static int counter;
-	int shipnum;
+	int shipnum[5];		//vettore del numero di ogni tipo di nave, [0] è il numero totale
 	int size;
 	string name;
 	vector<vector<Point> > map;
@@ -33,6 +33,7 @@ public:
 	void Deploy();
 	void Draw();
 	void Attack(Player&);
+	void fleetVisible(bool visible);
 
 };
 
