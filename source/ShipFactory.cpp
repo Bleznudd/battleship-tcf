@@ -13,12 +13,15 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
 
     bool creation=false;
     int len=0;
+    char hv;    // h if ship is horizontal, v if it's vertical
 
     if(abs(pstart.getX()-pend.getX())==0){
         len=abs(pstart.getY()-pend.getY())+1;
+        hv = 'v';
     }
     if(abs(pstart.getY()-pend.getY())==0){
         len=abs(pstart.getX()-pend.getX())+1;
+        hv = 'h';
     }
 
     Ship *ship;

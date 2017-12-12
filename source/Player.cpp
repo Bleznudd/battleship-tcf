@@ -164,3 +164,12 @@ void Player::fleetVisible(bool visible){
         }
     }
 }
+void Player::mappoints(){
+    for(vector<vector<Point> >::iterator i=map.begin(); i!=map.end(); i++){
+        for(vector<Point>::iterator j=i->begin(); j!=i->end(); j++){
+            cout << &(*j) << " -> " << *j << endl;
+        }
+        cout << endl;
+    }
+
+}

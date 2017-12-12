@@ -36,6 +36,7 @@ public:
 	void Draw();
 	void Attack(Player&);
 	void fleetVisible(bool visible);
+	void mappoints();
 
 };
 
