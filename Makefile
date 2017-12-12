@@ -18,17 +18,18 @@ CPUCORES = 4
 all:
 	@echo -e "\033[1;34m"::COSTRUISCO I BINARI NECESSARI..." \033[0m"
 	$(MAKE) -j $(CPUCORES) battleship-tcf
+	@echo -e "\033[1;34m"::COMPILAZIONE TERMINATA" \033[0m"
 
 #ISTRUZIONI PER L'ESEGUIBILE
 battleship-tcf:	$(OBJECTS)
 	 @echo -e "\033[1;34m"::COSTRUISCO L "'" ESEGUIBILE" \033[0m"
 	 $(CXX) $(CFLAGS) $(OBJECTS) -o $@
-	 @echo -e "\033[1;34m"::COMPILAZIONE TERMINATA" \033[0m"
 
 #ISTRUZIONI PER COMPILARE LE VARIE CLASSI
 %.o: %.cpp
 	 $(CXX) $(CFLAGS) -c $^ -o $@
 	 
+#ISTRUZIONI PER ELIMINARE I FILE *.o
 clean: 
 	 @echo -e "\033[1;34m"::RIMOZIONE DEI BINARI IN CORSO..." \033[0m"
 	 $(RM) $(OBJECTS)
