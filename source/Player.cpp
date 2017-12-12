@@ -35,6 +35,12 @@ Player::~Player(){
 string Player::getName(){
     return name;
 }
+vector<Ship*> &Player::getFleet(){
+    return fleet;
+}
+vector<vector<Point> > &Player::getMap(){
+    return map;
+}
 bool Player::getSomewinner(){
     return somewinner;
 }
@@ -42,11 +48,10 @@ void Player::SubstractShipnum(){
     shipnum[0]--;
 }
 void Player::Deploy(){
-    cout << "Schieramento della flotta del giocatore " << name << ": " << endl << endl;
+    Draw();
+    cout << "Schieramento della flotta del giocatore " << name << ": " << endl;
     while(shipnum[0] > 0){
-        fleetVisible(true);
-        Draw();
-        int surpluslines=11;
+        int surpluslines=0;
         Point pi, pf;
         cout << "Inserisci il punto iniziale della tua nave: ";
         while(!(cin >> pi)) {
@@ -66,16 +71,18 @@ void Player::Deploy(){
         }
         if(ShipFactory::create(pi, pf, this) == true){
             SubstractShipnum();
+            graphic::up(surpluslines+16);
+            fleetVisible(true);
+            Draw();
         }
         else{
+            graphic::up(3);
             cout << "L' intervallo di punti non corrisponde a nessun tipo di nave, riprovare" << endl;
         }
-        graphic::waitUser();
-        graphic::up(surpluslines+6);
     }
     fleetVisible(false);
-    //ShipFactory::restartCounters();
-    graphic::up(2);
+    graphic::waitUser();
+    graphic::up(14);
 }
 void Player::Draw(){
     vector<vector<Point> >::iterator i;
@@ -94,7 +101,7 @@ void Player::Draw(){
     cout << endl;
 }
 void Player::Attack(Player &player){
-    cout << "Turno del giocatore " << player.getName() << endl;    
+    cout << "Turno del giocatore " << getName() << endl;    
     Point attackpoint;
     cout << "Inserisci il punto che desideri attaccare: ";
     int surpluslines = 0;
@@ -105,17 +112,17 @@ void Player::Attack(Player &player){
         cout << "Inserisci il punto che desideri attaccare: ";
         surpluslines+=2;
     }
-    for(vector<vector<Point> >::iterator i=map.begin(); i!=map.end(); i++){
+    for(vector<vector<Point> >::iterator i=player.getMap().begin(); i!=player.getMap().end(); i++){
         for(vector<Point>::iterator j=i->begin(); j!=i->end(); j++){
             if(*j==attackpoint && j->getHit()==false){
                 j->setHit(true);
                 if(j->getShippoint()==true){
                     j->setMark("[#]");
                     cout << "Colpito!";
-                    for(vector<Ship*>::iterator s=fleet.begin(); s!=fleet.end() && fleet.empty()==false; s++){
+                    for(vector<Ship*>::iterator s=player.getFleet().begin(); s!=player.getFleet().end() && player.getFleet().empty()==false; s++){
                         (*s)->setHit(attackpoint);
                         if((*s)->checkSunk()==true){
-                            fleet.erase(s);
+                            player.getFleet().erase(s);
                         }
                     }
                 }
@@ -134,7 +141,7 @@ void Player::Attack(Player &player){
             } 
         }
     }
-    if(fleet.empty()==true){
+    if(player.getFleet().empty()==true){
         Player::somewinner=true;
     }
 }

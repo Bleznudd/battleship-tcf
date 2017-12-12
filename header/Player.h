@@ -28,6 +28,8 @@ public:
 	Player();
 	~Player();
 	string getName();
+	vector<Ship*> &getFleet();
+	vector<vector<Point> > &getMap();
 	static bool getSomewinner();
 	void SubstractShipnum();
 	void Deploy();

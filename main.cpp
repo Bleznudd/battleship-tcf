@@ -58,15 +58,15 @@ int main(){
     //TURNI DI GIOCO
     bool thisturn = false;
     while(Player::getSomewinner() == false){
-        if(thisturn == true){
+        if(thisturn == false){
             p1->Draw();
             p1->Attack(*p2);
-            thisturn = false;
+            thisturn = true;
         }
         else{
             p2->Draw();
             p2->Attack(*p1);
-            thisturn = true;
+            thisturn = false;
         }
     };
 
