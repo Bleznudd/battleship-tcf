@@ -30,7 +30,7 @@ int main(){
     cout << "     ************************* ISTRUZIONI ************************* " << endl
          << "Generali" << endl
          << "     Il gioco si svoglie in una griglia 10x10 caselle numerate 0-9." << endl
-         << "     Una posizione va indicata con 2 numeri separati da virgola (y,x)." << el
+         << "     Una posizione va indicata con 2 numeri separati da virgola (y,x)." << endl
          << "Legenda" << endl
          << "     cacciatorpediniere = nave da 2 caselle" << endl
          << "        incrociatore    = nave da 3 caselle" << endl
@@ -42,7 +42,7 @@ int main(){
          << "            [0]         = casella occupata da una ave" << endl
          << "Fase 1: Schieramento" << endl
          << "     Ogni giocatore deve posiionare 4 cacciatorpedinieri, 3 incrociatori" << endl
-         << "     2 navi da battaglia e 1 portaerei. Una volta posizionate tutte le navi" << enl
+         << "     2 navi da battaglia e 1 portaerei. Una volta posizionate tutte le navi" << endl
          << "     tocca all'altro giocatore." << endl
          << "Fase 2: Gioco" << endl
          << "     A turno i giocatori idicano una posizione in cui sparare ricevendo" << endl

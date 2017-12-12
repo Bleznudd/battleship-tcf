@@ -2,40 +2,34 @@
 
 #DEFINIZIONE DEL COMPILATORE
 CXX	= g++
-#IDENTIFICA SE COMPILARE PER DEBUG O PER RELEASE
+#IDENTIFICA SE COMPILARE PER UNIX O PER WINDOWS
 DR = UNIX
 #OPZIONI DEL COMPILATORE
 CFLAGS = -pipe -std=c++14 -O0 -pedantic -Wall -D$(DR)
+#IDENTIFICA IL PATH IN CUI MAKE DEVE CERCARE
+VPATH = source
+#IDENTIFICA TUTTI I FILE DA CUI IL PROGRAMMA DIPENDE
+OBJECTS = main.o Ship.o Player.o Point.o Battleship.o Carrier.o Cruiser.o \
+		  Destroyer.o ShipFactory.o Graphic.o
 #IDENTIFICA IL NUMERO DI JOBS PER MAKE
 #(NON UTILIZZARE PIÙ DEL NUMERO DI CORES DISPONIBILI)
 CPUCORES = 4
 
 all:
+	@echo -e "\033[1;34m"::COSTRUISCO I BINARI NECESSARI..." \033[0m"
 	$(MAKE) -j $(CPUCORES) battleship-tcf
 
- #ISTRUZIONI PER L'ESEGUIBILE
-battleship-tcf:	main.o Ship.o Player.o Point.o Battleship.o Carrier.o Cruiser.o Destroyer.o ShipFactory.o Graphic.o
-	 $(CXX) $(CFLAGS) main.o Ship.o Player.o Point.o Battleship.o Carrier.o Cruiser.o Destroyer.o ShipFactory.o Graphic.o -o battleship-tcf
+#ISTRUZIONI PER L'ESEGUIBILE
+battleship-tcf:	$(OBJECTS)
+	 @echo -e "\033[1;34m"::COSTRUISCO L "'" ESEGUIBILE" \033[0m"
+	 $(CXX) $(CFLAGS) $(OBJECTS) -o $@
+	 @echo -e "\033[1;34m"::COMPILAZIONE TERMINATA" \033[0m"
 
- #ISTRUZIONI PER COMPILARE LE VARIE CLASSI
-main.o:  main.cpp
-	 $(CXX) $(CFLAGS) -c ./main.cpp
-Ship.o:  ./source/Ship.cpp
-	 $(CXX) $(CFLAGS) -c ./source/Ship.cpp
-Player.o:  ./source/Player.cpp
-	 $(CXX) $(CFLAGS) -c ./source/Player.cpp
-Point.o:  ./source/Point.cpp
-	 $(CXX) $(CFLAGS) -c ./source/Point.cpp
-Battleship.o:  ./source/Battleship.cpp
-	 $(CXX) $(CFLAGS) -c ./source/Battleship.cpp
-Carrier.o:  ./source/Carrier.cpp
-	 $(CXX) $(CFLAGS) -c ./source/Carrier.cpp
-Cruiser.o:  ./source/Cruiser.cpp
-	 $(CXX) $(CFLAGS) -c ./source/Cruiser.cpp
-Destroyer.o:  ./source/Destroyer.cpp
-	 $(CXX) $(CFLAGS) -c ./source/Destroyer.cpp
-ShipFactory.o: ./source/ShipFactory.cpp
-	 $(CXX) $(CFLAGS) -c ./source/ShipFactory.cpp
-Graphic.o: ./source/Graphic.cpp
-	 $(CXX) $(CFLAGS) -c ./source/Graphic.cpp
+#ISTRUZIONI PER COMPILARE LE VARIE CLASSI
+%.o: %.cpp
+	 $(CXX) $(CFLAGS) -c $^ -o $@
 	 
+clean: 
+	 @echo -e "\033[1;34m"::RIMOZIONE DEI BINARI IN CORSO..." \033[0m"
+	 $(RM) $(OBJECTS)
+	 @echo -e "\033[1;34m"::RIMOZIONE TERMINATA" \033[0m"
