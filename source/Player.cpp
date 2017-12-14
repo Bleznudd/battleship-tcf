@@ -27,7 +27,7 @@ Player::Player(){
         map.push_back(vect);
     }
     cout << "Nome giocatore " << counter << ": ";
-    cin >> name;
+    getline(cin,name);
 }
 Player::~Player(){
 

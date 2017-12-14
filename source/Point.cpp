@@ -64,6 +64,7 @@ istream& operator>>(istream& istream, Point &p1){
     int yy;
     char c;
     istream >> xx >> c >> yy;
+    istream.ignore(999,'\n');
     p1.setX(xx);
     p1.setY(yy);
     return istream;

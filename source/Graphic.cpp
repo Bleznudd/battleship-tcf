@@ -40,7 +40,6 @@ namespace graphic{
         void waitUser(){
             cout << "(Premi ENTER per continuare)" << endl;
             cin.ignore();
-            cin.ignore();
         }
 
         void title(string s){
