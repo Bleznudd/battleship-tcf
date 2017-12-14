@@ -77,7 +77,7 @@ void Player::Deploy(){
         }
         else{
             graphic::up(3);
-            cout << "L' intervallo di punti non corrisponde a nessun tipo di nave, riprovare" << endl;
+            cout << "L' intervallo di punti non corrisponde a nessun tipo di nave disponibile, riprovare" << endl;
         }
     }
     fleetVisible(false);

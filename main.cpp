@@ -17,7 +17,7 @@ int main(){
     graphic::clear();
     graphic::gohome();
     graphic::title("BATTAGLIA NAVALE");
-    cout << "     ********************************************************** " << endl;
+    cout << "      ********************************************************** " << endl;
     cout << " Benvenuti a battaglia navale, per cominciare inserite i nomi dei giocatori " << endl;
     cout << endl;
 
@@ -39,7 +39,7 @@ int main(){
          << "            [ ]         = casella base" << endl
          << "            [-]         = casella mancata" << endl
          << "            [#]         = casella colpita" << endl
-         << "            [0]         = casella occupata da una ave" << endl
+         << "            [0]         = casella occupata da una nave" << endl
          << "Fase 1: Schieramento" << endl
          << "     Ogni giocatore deve posiionare 4 cacciatorpedinieri, 3 incrociatori" << endl
          << "     2 navi da battaglia e 1 portaerei. Una volta posizionate tutte le navi" << endl
