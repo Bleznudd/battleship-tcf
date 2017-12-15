@@ -30,7 +30,10 @@ You will find and executable file in the directory called **battleship-tcf**, st
 ```
 
 ### Note for Windows users
-Due to ANSI escape codes used in this project (which widnows prompt does not support) you will need ad additional step to play this game. First you will need *GnuWin* wich can be found here:
-http://gnuwin32.sourceforge.net/
+Due to ANSI escape codes used in this project (which widnows prompt does not support) you will need ad additional step to play this game. First you will need [GnuWin](http://gnuwin32.sourceforge.net/) or [Cygwin](http://www.cygwin.com/)
 and the you will need to open the Makefile, ad modify the `DR` variable from `UNIX` to `WINDOWS`.
 After that you will be able to run make, and play the game as mentioned above.
+
+## Manteinance
+As said, this is a game made for the C++ exam of TCF course of 2017, so it will not be manteined after the exam date.
+Don't expect update and/or bugfix
