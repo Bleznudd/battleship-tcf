@@ -125,6 +125,7 @@ void Player::Attack(Player &player){
                     while(s!=player.getFleet().end() && player.getFleet().empty()==false){
                         (*s)->setHit(attackpoint);
                         if((*s)->checkSunk()==true){
+                            delete *(player.getFleet().begin()+count);
                             player.getFleet().erase(player.getFleet().begin()+count);
                         }
                         else{

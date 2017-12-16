@@ -1,5 +1,6 @@
 #include "../header/ShipFactory.h"
 #include "../header/Graphic.h"
+#include <algorithm>       //per std::swap in ShipFactory::create()
 
 using graphic::up;
 
@@ -13,15 +14,19 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
 
     bool creation=false;
     int len=0;
-    char hv;    // h if ship is horizontal, v if it's vertical
+    Point tmp;
 
-    if(abs(pstart.getX()-pend.getX())==0){
+    if(pstart.getX()-pend.getX()==0){
         len=abs(pstart.getY()-pend.getY())+1;
-        hv = 'v';
+        if((pstart.getY()-pend.getY())>0){
+            swap(pstart, pend);
+        }
     }
-    if(abs(pstart.getY()-pend.getY())==0){
+    if(pstart.getY()-pend.getY()==0){
         len=abs(pstart.getX()-pend.getX())+1;
-        hv = 'h';
+        if((pstart.getX()-pend.getX())>0){
+            swap(pstart, pend);
+        }
     }
 
     Ship *ship;
