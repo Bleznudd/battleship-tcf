@@ -6,7 +6,7 @@ Ship::Ship(){
 
 }
 Ship::~Ship(){
-    cout << "Affondata!" << endl;
+    cout << "Affondata!";
 }
 void Ship::setHit(Point &p){
     for(vector<Point*>::iterator iter=OccupiedPoints.begin(); iter!=OccupiedPoints.end(); iter++){

@@ -13,7 +13,7 @@ Player::Player(string name_){
 }
 Player::Player(){
     size = 9;
-    shipnum[1]=1;      //numero navi da 2
+    shipnum[1]=3;      //numero navi da 2
     shipnum[2]=0;      //numero navi da 3
     shipnum[3]=0;      //numero navi da 4
     shipnum[4]=0;      //numero navi da 5
@@ -49,11 +49,11 @@ void Player::SubstractShipnum(){
 }
 void Player::Deploy(){
     Draw();
-    cout << "Schieramento della flotta del giocatore " << name << ": " << endl;
+    cout << "Schieramento della flotta del giocatore " << name << ": ";
     while(shipnum[0] > 0){
         int surpluslines=0;
         Point pi, pf;
-        cout << "Inserisci il punto iniziale della tua nave: ";
+        cout << endl << "Inserisci il punto iniziale della tua nave: ";
         while(!(cin >> pi)) {
             cin.clear();
             cin.ignore(999,'\n');
@@ -77,7 +77,7 @@ void Player::Deploy(){
         }
         else{
             graphic::up(3);
-            cout << "L' intervallo di punti non corrisponde a nessun tipo di nave disponibile, riprovare" << endl;
+            cout << "L' intervallo di punti non corrisponde a nessun tipo di nave disponibile, riprovare";
         }
     }
     fleetVisible(false);
@@ -119,11 +119,18 @@ void Player::Attack(Player &player){
                 if(j->getShippoint()==true){
                     j->setMark("[#]");
                     cout << "Colpito!";
-                    for(vector<Ship*>::iterator s=player.getFleet().begin(); s!=player.getFleet().end() && player.getFleet().empty()==false; s++){
+
+                    int count = 0;
+                    vector<Ship*>::iterator s=player.getFleet().begin();
+                    while(s!=player.getFleet().end() && player.getFleet().empty()==false){
                         (*s)->setHit(attackpoint);
                         if((*s)->checkSunk()==true){
-                            player.getFleet().erase(s);
+                            player.getFleet().erase(player.getFleet().begin()+count);
                         }
+                        else{
+                            s++;
+                        }
+                        count++;
                     }
                 }
                 else{
