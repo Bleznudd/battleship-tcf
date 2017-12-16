@@ -6,7 +6,7 @@ Ship::Ship(){
 
 }
 Ship::~Ship(){
-    cout << "Affondata!" << endl;
+    cout << " E Affondato!";
 }
 void Ship::setHit(Point &p){
     for(vector<Point*>::iterator iter=OccupiedPoints.begin(); iter!=OccupiedPoints.end(); iter++){
@@ -23,7 +23,7 @@ bool Ship::checkSunk(){
         }
     }
     if(nothit==0){
-        cout << " E affondato !";
+        //cout << " E affondato !";
         sunk = true;
     }
     return sunk;

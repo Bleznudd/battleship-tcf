@@ -1,5 +1,6 @@
 #include "../header/ShipFactory.h"
 #include "../header/Graphic.h"
+#include <algorithm>       //per std::swap in ShipFactory::create()
 
 using graphic::up;
 
@@ -13,12 +14,19 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
 
     bool creation=false;
     int len=0;
+    Point tmp;
 
-    if(abs(pstart.getX()-pend.getX())==0){
+    if(pstart.getX()-pend.getX()==0){
         len=abs(pstart.getY()-pend.getY())+1;
+        if((pstart.getY()-pend.getY())>0){
+            swap(pstart, pend);
+        }
     }
-    if(abs(pstart.getY()-pend.getY())==0){
+    if(pstart.getY()-pend.getY()==0){
         len=abs(pstart.getX()-pend.getX())+1;
+        if((pstart.getX()-pend.getX())>0){
+            swap(pstart, pend);
+        }
     }
 
     Ship *ship;
@@ -35,7 +43,7 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
         case 3:
             if(currentp->shipnum[2]>0){
                 currentp->shipnum[2]--;
-                ship = new Destroyer(pstart,pend);
+                ship = new Cruiser(pstart,pend);
                 cout << "Creato cacciatorpediniere" << endl;
                 creation=true;
             }
@@ -43,7 +51,7 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
         case 4:
             if(currentp->shipnum[3]>0){
                 currentp->shipnum[3]--;
-                ship = new Destroyer(pstart,pend);
+                ship = new Battleship(pstart,pend);
                 cout << "Creato cacciatorpediniere" << endl;
                 creation=true;
             }
@@ -51,7 +59,7 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
         case 5:
             if(currentp->shipnum[4]>0){
                 currentp->shipnum[4]--;
-                ship = new Destroyer(pstart,pend);
+                ship = new Carrier(pstart,pend);
                 cout << "Creato cacciatorpediniere" << endl;
                 creation=true;
             }
@@ -66,7 +74,6 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
                         if(currentp->map[i][j].getShippoint()==true){
                             creation=false;
                             graphic::up(2);
-                            return creation;
                         }
                         else{
                         currentp->map[i][j].setShippoint(true);

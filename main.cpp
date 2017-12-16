@@ -17,7 +17,7 @@ int main(){
     graphic::clear();
     graphic::gohome();
     graphic::title("BATTAGLIA NAVALE");
-    cout << "     ********************************************************** " << endl;
+    cout << "      ********************************************************** " << endl;
     cout << " Benvenuti a battaglia navale, per cominciare inserite i nomi dei giocatori " << endl;
     cout << endl;
 
@@ -27,28 +27,28 @@ int main(){
     graphic::up(5);
 
     //ISTRUZIONI
-    cout << "     ************************* ISTRUZIONI ************************* " << endl;
-    cout << "Generali" << endl;
-    cout << "     Il gioco si svoglie in una griglia 10x10 caselle numerate 0-9." << endl;
-    cout << "     Una posizione va indicata con 2 numeri separati da virgola (y,x)." << endl;
-    cout << "Legenda" << endl;
-    cout << "     cacciatorpediniere = nave da 2 caselle" << endl;
-    cout << "        incrociatore    = nave da 3 caselle" << endl;
-    cout << "      nave da battaglia = nave da 4 caselle" << endl;
-    cout << "         portaerei      = nave da 5 caselle" << endl;
-    cout << "            [ ]         = casella base" << endl;
-    cout << "            [-]         = casella mancata" << endl;
-    cout << "            [#]         = casella colpita" << endl;
-    cout << "            [0]         = casella occupata da una nave" << endl;
-    cout << "Fase 1: Schieramento" << endl;
-    cout << "     Ogni giocatore deve posizionare 4 cacciatorpedinieri, 3 incrociatori" << endl;
-    cout << "     2 navi da battaglia e 1 portaerei. Una volta posizionate tutte le navi" << endl;
-    cout << "     tocca all'altro giocatore." << endl;
-    cout << "Fase 2: Gioco" << endl;
-    cout << "     A turno i giocatori idicano una posizione in cui sparare ricevendo" << endl;
-    cout << "     come risposta un messaggio (colpito o mancato ed eventualmente affondato)." << endl;
-    cout << "     Quando un giocatore affonda tutte le navi avversarie è dichiarato vincitore" << endl;
-    cout << endl;
+    cout << "     ************************* ISTRUZIONI ************************* " << endl
+         << "Generali" << endl
+         << "     Il gioco si svoglie in una griglia 10x10 caselle numerate 0-9." << endl
+         << "     Una posizione va indicata con 2 numeri separati da virgola (y,x)." << endl
+         << "Legenda" << endl
+         << "     cacciatorpediniere = nave da 2 caselle" << endl
+         << "        incrociatore    = nave da 3 caselle" << endl
+         << "      nave da battaglia = nave da 4 caselle" << endl
+         << "         portaerei      = nave da 5 caselle" << endl
+         << "            [ ]         = casella base" << endl
+         << "            [-]         = casella mancata" << endl
+         << "            [#]         = casella colpita" << endl
+         << "            [0]         = casella occupata da una nave" << endl
+         << "Fase 1: Schieramento" << endl
+         << "     Ogni giocatore deve posiionare 4 cacciatorpedinieri, 3 incrociatori" << endl
+         << "     2 navi da battaglia e 1 portaerei. Una volta posizionate tutte le navi" << endl
+         << "     tocca all'altro giocatore." << endl
+         << "Fase 2: Gioco" << endl
+         << "     A turno i giocatori idicano una posizione in cui sparare ricevendo" << endl
+         << "     come risposta un messaggio (colpito o mancato ed eventualmente affondato)." << endl
+         << "     Quando un giocatore affonda tutte le navi avversarie è dichiarato vincitore" << endl
+         << endl;
     graphic::waitUser();
     graphic::up(24);
     //CREAZIONE DELLE FLOTTE
@@ -58,15 +58,15 @@ int main(){
     //TURNI DI GIOCO
     bool thisturn = false;
     while(Player::getSomewinner() == false){
-        if(thisturn == true){
-            p1->Draw();
+        if(thisturn == false){
+            p2->Draw();
             p1->Attack(*p2);
-            thisturn = false;
+            thisturn = true;
         }
         else{
-            p2->Draw();
+            p1->Draw();
             p2->Attack(*p1);
-            thisturn = true;
+            thisturn = false;
         }
     };
 

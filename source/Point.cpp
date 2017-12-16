@@ -59,14 +59,20 @@ ostream& operator<<(ostream& ostream, Point &p1){
     ostream << p1.getX() << "," << p1.getY();
     return ostream;
 }
-istream& operator>>(istream& istream, Point &p1){
+istream& operator>>(istream& ist, Point &p1){
     int xx;
     int yy;
     char c;
-    istream >> xx >> c >> yy;
-    p1.setX(xx);
-    p1.setY(yy);
-    return istream;
+    ist >> xx >> c >> yy;
+    if(xx>=0 && xx<=9 && yy>=0 && yy<=9){
+        p1.setX(xx);
+        p1.setY(yy);
+        ist.ignore(999,'\n');
+    }
+    else{
+        ist.setstate(std::ios_base::failbit);
+    }
+    return ist;
 }
 Point operator-(Point &p1, Point &p2){
     Point d((p1.getX()-p2.getX()),(p1.getY()-p2.getY()));
