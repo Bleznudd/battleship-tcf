@@ -59,12 +59,12 @@ int main(){
     bool thisturn = false;
     while(Player::getSomewinner() == false){
         if(thisturn == false){
-            p1->Draw();
+            p2->Draw();
             p1->Attack(*p2);
             thisturn = true;
         }
         else{
-            p2->Draw();
+            p1->Draw();
             p2->Attack(*p1);
             thisturn = false;
         }
