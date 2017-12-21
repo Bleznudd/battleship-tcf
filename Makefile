@@ -10,7 +10,7 @@ CFLAGS = -pipe -std=c++14 -O0 -pedantic -Wall -D$(DR)
 VPATH = source
 #IDENTIFICA TUTTI I FILE DA CUI IL PROGRAMMA DIPENDE
 OBJECTS = main.o Ship.o Player.o Point.o Battleship.o Carrier.o Cruiser.o \
-		  Destroyer.o ShipFactory.o Graphic.o
+		  Destroyer.o ShipFactory.o Graphic.o Error.o
 #IDENTIFICA IL NUMERO DI JOBS PER MAKE
 #(NON UTILIZZARE PIÙ DEL NUMERO DI CORES DISPONIBILI)
 CPUCORES = 4

@@ -1,6 +1,7 @@
 #include "../header/Player.h"
 #include "../header/ShipFactory.h"
 #include "../header/Graphic.h"
+#include "../header/Error.h"
 
 using namespace std;
 using graphic::up;
@@ -77,7 +78,7 @@ void Player::Deploy(){
         }
         else{
             graphic::up(3);
-            cout << "L' intervallo di punti non corrisponde a nessun tipo di nave disponibile, riprovare";
+            cout << Error::get(); //"L' intervallo di punti non corrisponde a nessun tipo di nave disponibile, riprovare";
         }
     }
     fleetVisible(false);

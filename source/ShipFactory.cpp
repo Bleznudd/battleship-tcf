@@ -1,6 +1,8 @@
 #include "../header/ShipFactory.h"
 #include "../header/Graphic.h"
 #include <algorithm>       //per std::swap in ShipFactory::create()
+#include "../header/Error.h"
+
 
 using graphic::up;
 
@@ -28,6 +30,9 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
             swap(pstart, pend);
         }
     }
+    else{
+        Error::set("I 2 punti non sono allineati, riprovare");
+    }
 
     Ship *ship;
     
@@ -39,6 +44,9 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
                 cout << "Creato cacciatorpediniere" << endl;
                 creation=true;
             }
+            else{
+                Error::set("Hai già esaurito le navi di questo tipo, riprovare");
+            }
         break;
         case 3:
             if(currentp->shipnum[2]>0){
@@ -46,6 +54,9 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
                 ship = new Cruiser(pstart,pend);
                 cout << "Creato cacciatorpediniere" << endl;
                 creation=true;
+            }
+            else{
+                Error::set("Hai già esaurito le navi di questo tipo, riprovare");
             }
         break;
         case 4:
@@ -55,6 +66,9 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
                 cout << "Creato cacciatorpediniere" << endl;
                 creation=true;
             }
+            else{
+                Error::set("Hai già esaurito le navi di questo tipo, riprovare");
+            }
         break;
         case 5:
             if(currentp->shipnum[4]>0){
@@ -63,6 +77,14 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
                 cout << "Creato cacciatorpediniere" << endl;
                 creation=true;
             }
+            else{
+                Error::set("Hai già esaurito le navi di questo tipo, riprovare");
+            }
+        break;
+        case 0: 
+        break;
+        default:
+            Error::set("Non esiste una nave con questa lunghezza, riprovare");
         break;
     }
     if(creation==true){ 
