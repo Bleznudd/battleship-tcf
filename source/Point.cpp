@@ -71,9 +71,11 @@ istream& operator>>(istream& ist, Point &p1){
     }
     else{
         ist.setstate(std::ios_base::failbit);
+        throw "Il punto inserito non è valido, reinserirlo";
     }
     return ist;
 }
+
 Point operator-(Point &p1, Point &p2){
     Point d((p1.getX()-p2.getX()),(p1.getY()-p2.getY()));
     return d;

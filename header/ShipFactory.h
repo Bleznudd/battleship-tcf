@@ -19,7 +19,8 @@ public:
 
     ShipFactory();
     ~ShipFactory();
-    static bool create(Point, Point, Player*);
+    static void create(Point, Point, Player*);
+    static void deleteship(Ship*, Player*);
 
 };
 

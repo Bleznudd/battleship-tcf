@@ -1,7 +1,6 @@
 #include "../header/Player.h"
 #include "../header/ShipFactory.h"
 #include "../header/Graphic.h"
-#include "../header/Error.h"
 
 using namespace std;
 using graphic::up;
@@ -14,10 +13,10 @@ Player::Player(string name_){
 }
 Player::Player(){
     size = 9;
-    shipnum[1]=3;      //numero navi da 2
-    shipnum[2]=0;      //numero navi da 3
-    shipnum[3]=0;      //numero navi da 4
-    shipnum[4]=0;      //numero navi da 5
+    shipnum[1]=4;      //numero navi da 2
+    shipnum[2]=3;      //numero navi da 3
+    shipnum[3]=2;      //numero navi da 4
+    shipnum[4]=1;      //numero navi da 5
     shipnum[0]=shipnum[1]+shipnum[2]+shipnum[3]+shipnum[4];      //numero totale di navi
     counter++;
     for(int i=0;i<=size;i++){
@@ -48,38 +47,60 @@ bool Player::getSomewinner(){
 void Player::SubstractShipnum(){
     shipnum[0]--;
 }
+void Player::AddShipnum(){
+    shipnum[0]++;
+}
 void Player::Deploy(){
+    cout << "Schieramento della flotta del giocatore " << name << ": " << endl;
+    cout << endl;
     Draw();
-    cout << "Schieramento della flotta del giocatore " << name << ": ";
     while(shipnum[0] > 0){
-        int surpluslines=0;
-        Point pi, pf;
-        cout << endl << "Inserisci il punto iniziale della tua nave: ";
-        while(!(cin >> pi)) {
-            cin.clear();
-            cin.ignore(999,'\n');
-            cout<<"Il punto inserito non è valido, reinserirlo" << endl;
-            cout << "Inserisci il punto iniziale della tua nave: ";
-            surpluslines+=2;
+        try{
+            Point pi, pf;
+            bool start=false, end=false;
+            while(start==false){
+                try{
+                    cout << endl << "Inserisci il punto iniziale della tua nave: ";
+                    cin >> pi;
+                    start=true;
+                }
+                catch(const char* n){
+                    cout << n << endl;
+                    cin.clear();
+                    cin.ignore(999,'\n');
+                    graphic::waitUser();
+                    graphic::up(5);
+                    start=false;
+                }
+            }
+            while(end==false){
+                try{
+                    cout << endl << "Inserisci il punto finale della tua nave: ";
+                    cin >> pf;
+                    end=true;
+                }
+                catch(const char* n){
+                    cout << n << endl;
+                    cin.clear();
+                    cin.ignore(999,'\n');
+                    graphic::waitUser();
+                    graphic::up(5);
+                    end=false;
+                }
+            }
+        ShipFactory::create(pi, pf, this);
+        SubstractShipnum();
+        graphic::waitUser();
         }
-        cout << "Inserisci il punto finale della tua nave: ";
-        while(!(cin >> pf)) {
-            cin.clear();
-            cin.ignore(999,'\n');
-            cout<<"Il punto inserito non è valido, reinserirlo" << endl;
-            cout << "Inserisci il punto finale della tua nave: ";
-            surpluslines+=2;
+        catch(const char* n){
+            cout << n << endl;
+            graphic::waitUser();
+            graphic::up(1);
+            AddShipnum();
         }
-        if(ShipFactory::create(pi, pf, this) == true){
-            SubstractShipnum();
-            graphic::up(surpluslines+16);
-            fleetVisible(true);
-            Draw();
-        }
-        else{
-            graphic::up(3);
-            cout << Error::get(); //"L' intervallo di punti non corrisponde a nessun tipo di nave disponibile, riprovare";
-        }
+        graphic::up(19);
+        fleetVisible(true);
+        Draw();
     }
     fleetVisible(false);
     graphic::waitUser();

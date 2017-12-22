@@ -32,6 +32,7 @@ public:
 	vector<vector<Point> > &getMap();
 	static bool getSomewinner();
 	void SubstractShipnum();
+	void AddShipnum();
 	void Deploy();
 	void Draw();
 	void Attack(Player&);

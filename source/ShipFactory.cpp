@@ -1,7 +1,6 @@
 #include "../header/ShipFactory.h"
 #include "../header/Graphic.h"
 #include <algorithm>       //per std::swap in ShipFactory::create()
-#include "../header/Error.h"
 
 
 using graphic::up;
@@ -12,7 +11,7 @@ ShipFactory::ShipFactory(){
 ShipFactory::~ShipFactory(){
     
 }
-bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
+void ShipFactory::create(Point pstart, Point pend, Player* currentp){
 
     bool creation=false;
     int len=0;
@@ -30,8 +29,8 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
             swap(pstart, pend);
         }
     }
-    else{
-        Error::set("I 2 punti non sono allineati, riprovare");
+    else if(pstart.getX()-pend.getX()!=0 && pstart.getY()-pend.getY()!=0){
+        throw "I 2 punti non sono allineati, riprovare\n";
     }
 
     Ship *ship;
@@ -45,46 +44,46 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
                 creation=true;
             }
             else{
-                Error::set("Hai già esaurito le navi di questo tipo, riprovare");
+                throw "Hai già esaurito le navi di questo tipo, riprovare\n";
             }
         break;
         case 3:
             if(currentp->shipnum[2]>0){
                 currentp->shipnum[2]--;
                 ship = new Cruiser(pstart,pend);
-                cout << "Creato cacciatorpediniere" << endl;
+                cout << "Creato incrociatore" << endl;
                 creation=true;
             }
             else{
-                Error::set("Hai già esaurito le navi di questo tipo, riprovare");
+                throw "Hai già esaurito le navi di questo tipo, riprovare\n";
             }
         break;
         case 4:
             if(currentp->shipnum[3]>0){
                 currentp->shipnum[3]--;
                 ship = new Battleship(pstart,pend);
-                cout << "Creato cacciatorpediniere" << endl;
+                cout << "Creata nave da battaglia" << endl;
                 creation=true;
             }
             else{
-                Error::set("Hai già esaurito le navi di questo tipo, riprovare");
+                throw "Hai già esaurito le navi di questo tipo, riprovare\n";
             }
         break;
         case 5:
             if(currentp->shipnum[4]>0){
                 currentp->shipnum[4]--;
                 ship = new Carrier(pstart,pend);
-                cout << "Creato cacciatorpediniere" << endl;
+                cout << "Creata portaerei" << endl;
                 creation=true;
             }
             else{
-                Error::set("Hai già esaurito le navi di questo tipo, riprovare");
+                throw "Hai già esaurito le navi di questo tipo, riprovare\n";
             }
         break;
         case 0: 
         break;
         default:
-            Error::set("Non esiste una nave con questa lunghezza, riprovare");
+            throw "Non esiste una nave con questa lunghezza, riprovare\n";
         break;
     }
     if(creation==true){ 
@@ -94,11 +93,14 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
                 for(int j=0;j<=currentp->size;j++){
                     if(**iter==currentp->map[i][j]){
                         if(currentp->map[i][j].getShippoint()==true){
-                            creation=false;
+                            deleteship(ship,currentp);
+                            cout << endl;
                             graphic::up(2);
+                            throw "posizione già occupata, riprovare\n";
                         }
                         else{
                         currentp->map[i][j].setShippoint(true);
+                        currentp->fleet.push_back(ship);
                         }
                     }
                     else{
@@ -107,7 +109,10 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
                 }
             }
         }
-        currentp->fleet.push_back(ship);
     }
-    return creation;
+}
+
+void ShipFactory::deleteship(Ship* ship, Player* player){
+    player->shipnum[(ship->lenght-1)]++;
+    delete ship;
 }
