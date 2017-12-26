@@ -44,8 +44,8 @@ vector<vector<Point> > &Player::getMap(){
 bool Player::getSomewinner(){
     return somewinner;
 }
-void Player::SubstractShipnum(){
-    shipnum[0]--;
+void Player::UpdateShipnum(){
+    shipnum[0]=shipnum[1]+shipnum[2]+shipnum[3]+shipnum[4];
 }
 void Player::Deploy(){
     Draw();
@@ -70,7 +70,7 @@ void Player::Deploy(){
             surpluslines+=2;
         }
         if(ShipFactory::create(pi, pf, this) == true){
-            SubstractShipnum();
+            UpdateShipnum();
             graphic::up(surpluslines+16);
             fleetVisible(true);
             Draw();
@@ -171,13 +171,4 @@ void Player::fleetVisible(bool visible){
             }
         }
     }
-}
-void Player::mappoints(){
-    for(vector<vector<Point> >::iterator i=map.begin(); i!=map.end(); i++){
-        for(vector<Point>::iterator j=i->begin(); j!=i->end(); j++){
-            cout << &(*j) << " -> " << *j << endl;
-        }
-        cout << endl;
-    }
-
 }

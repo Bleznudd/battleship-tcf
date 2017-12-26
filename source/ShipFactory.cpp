@@ -30,11 +30,11 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
     }
 
     Ship *ship;
-    
+
     switch(len){
         case 2:
             if(currentp->shipnum[1]>0){
-                currentp->shipnum[1]--;
+                //currentp->shipnum[1]--;
                 ship = new Destroyer(pstart,pend);
                 cout << "Creato cacciatorpediniere" << endl;
                 creation=true;
@@ -42,7 +42,7 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
         break;
         case 3:
             if(currentp->shipnum[2]>0){
-                currentp->shipnum[2]--;
+                //currentp->shipnum[2]--;
                 ship = new Cruiser(pstart,pend);
                 cout << "Creato cacciatorpediniere" << endl;
                 creation=true;
@@ -50,7 +50,7 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
         break;
         case 4:
             if(currentp->shipnum[3]>0){
-                currentp->shipnum[3]--;
+                //currentp->shipnum[3]--;
                 ship = new Battleship(pstart,pend);
                 cout << "Creato cacciatorpediniere" << endl;
                 creation=true;
@@ -58,7 +58,7 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
         break;
         case 5:
             if(currentp->shipnum[4]>0){
-                currentp->shipnum[4]--;
+                //currentp->shipnum[4]--;
                 ship = new Carrier(pstart,pend);
                 cout << "Creato cacciatorpediniere" << endl;
                 creation=true;
@@ -75,17 +75,21 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
                             creation=false;
                             graphic::up(2);
                         }
-                        else{
+                        else if(creation == true){
                         currentp->map[i][j].setShippoint(true);
                         }
                     }
-                    else{
-
-                    } 
                 }
             }
         }
+    }
+    if(creation == true){
+        currentp->shipnum[len]--;
         currentp->fleet.push_back(ship);
+    }
+    else{
+        delete ship;
+        graphic::up(1);
     }
     return creation;
 }

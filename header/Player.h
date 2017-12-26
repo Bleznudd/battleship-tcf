@@ -31,7 +31,7 @@ public:
 	vector<Ship*> &getFleet();
 	vector<vector<Point> > &getMap();
 	static bool getSomewinner();
-	void SubstractShipnum();
+	void UpdateShipnum();
 	void Deploy();
 	void Draw();
 	void Attack(Player&);
