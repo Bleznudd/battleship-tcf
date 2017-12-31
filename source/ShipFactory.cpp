@@ -22,11 +22,15 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
             swap(pstart, pend);
         }
     }
-    if(pstart.getY()-pend.getY()==0){
+    else if(pstart.getY()-pend.getY()==0){
         len=abs(pstart.getX()-pend.getX())+1;
         if((pstart.getX()-pend.getX())>0){
             swap(pstart, pend);
         }
+    }
+    else{
+        graphic::up(3);
+        return false;
     }
 
     Ship *ship;
@@ -64,6 +68,10 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
                 creation=true;
             }
         break;
+        default:
+            graphic::up(2);
+            return false;
+        break;
     }
     if(creation==true){ 
         vector<Point*>::iterator iter;
@@ -73,7 +81,7 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
                     if(**iter==currentp->map[i][j]){
                         if(currentp->map[i][j].getShippoint()==true){
                             creation=false;
-                            graphic::up(2);
+                            graphic::up(3);
                         }
                         else if(creation == true){
                         currentp->map[i][j].setShippoint(true);

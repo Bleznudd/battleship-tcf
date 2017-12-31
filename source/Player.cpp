@@ -13,10 +13,10 @@ Player::Player(string name_){
 }
 Player::Player(){
     size = 9;
-    shipnum[1]=3;      //numero navi da 2
-    shipnum[2]=0;      //numero navi da 3
-    shipnum[3]=0;      //numero navi da 4
-    shipnum[4]=0;      //numero navi da 5
+    shipnum[1]=1;      //numero navi da 2
+    shipnum[2]=2;      //numero navi da 3
+    shipnum[3]=1;      //numero navi da 4
+    shipnum[4]=1;      //numero navi da 5
     shipnum[0]=shipnum[1]+shipnum[2]+shipnum[3]+shipnum[4];      //numero totale di navi
     counter++;
     for(int i=0;i<=size;i++){
@@ -76,8 +76,10 @@ void Player::Deploy(){
             Draw();
         }
         else{
-            graphic::up(3);
+            cout << endl;
+            graphic::up(1);
             cout << "L' intervallo di punti non corrisponde a nessun tipo di nave disponibile, riprovare";
+            surpluslines=+2;
         }
     }
     fleetVisible(false);
