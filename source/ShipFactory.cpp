@@ -43,6 +43,10 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
                 cout << "Creato cacciatorpediniere" << endl;
                 creation=true;
             }
+            else{
+                graphic::up(3);
+                return false;
+            }
         break;
         case 3:
             if(currentp->shipnum[2]>0){
@@ -50,6 +54,10 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
                 ship = new Cruiser(pstart,pend);
                 cout << "Creato cacciatorpediniere" << endl;
                 creation=true;
+            }
+            else{
+                graphic::up(3);
+                return false;
             }
         break;
         case 4:
@@ -59,6 +67,10 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
                 cout << "Creato cacciatorpediniere" << endl;
                 creation=true;
             }
+            else{
+                graphic::up(3);
+                return false;
+            }
         break;
         case 5:
             if(currentp->shipnum[4]>0){
@@ -67,9 +79,13 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
                 cout << "Creato cacciatorpediniere" << endl;
                 creation=true;
             }
+            else{
+                graphic::up(3);
+                return false;
+            }
         break;
         default:
-            graphic::up(2);
+            graphic::up(3);
             return false;
         break;
     }
@@ -92,7 +108,7 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
         }
     }
     if(creation == true){
-        currentp->shipnum[len]--;
+        currentp->shipnum[(len-1)]--;
         currentp->fleet.push_back(ship);
     }
     else{
