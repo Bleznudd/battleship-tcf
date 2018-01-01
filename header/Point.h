@@ -9,6 +9,7 @@ using namespace std;
 class Point{
 
 private:
+    
     int x;
     int y;
     bool hit;
@@ -32,8 +33,6 @@ public:
     friend bool operator==(Point &p1, Point &p2);
     friend ostream& operator<<(ostream& ostream, Point &p1);
     friend istream& operator>>(istream& istream, Point &p1);
-    friend Point operator+(Point &p1, Point &p2);
-    friend Point operator-(Point &p1, Point &p2);
 
 };
 

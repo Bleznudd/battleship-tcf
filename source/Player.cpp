@@ -1,3 +1,5 @@
+//implementazione di Player.h
+
 #include "../header/Player.h"
 #include "../header/ShipFactory.h"
 #include "../header/Graphic.h"
@@ -6,16 +8,13 @@ using namespace std;
 using graphic::up;
 
 int Player::counter=0;
-bool Player::somewinner=false;
+bool Player::somewinner=false;  //esistenza di un qualsiasi vincitore
 
-Player::Player(string name_){
-    name = name_;
-}
 Player::Player(){
     size = 9;
-    shipnum[1]=1;      //numero navi da 2
-    shipnum[2]=2;      //numero navi da 3
-    shipnum[3]=1;      //numero navi da 4
+    shipnum[1]=4;      //numero navi da 2
+    shipnum[2]=3;      //numero navi da 3
+    shipnum[3]=2;      //numero navi da 4
     shipnum[4]=1;      //numero navi da 5
     shipnum[0]=shipnum[1]+shipnum[2]+shipnum[3]+shipnum[4];      //numero totale di navi
     counter++;
@@ -72,16 +71,16 @@ void Player::Deploy(){
         if(ShipFactory::create(pi, pf, this) == true){
             UpdateShipnum();
             graphic::up(surpluslines+15);
-            fleetVisible(true);
+            setFleetVisible(true);
             Draw();
             surpluslines = 0;
         }
         else{
-            cout << "L' intervallo di punti non corrisponde a nessun tipo di nave disponibile, riprovare";
+            cout << "\rL' intervallo di punti non corrisponde a nessun tipo di nave disponibile, riprovare";
             surpluslines+=3;
         }
     }
-    fleetVisible(false);
+    setFleetVisible(false);
     graphic::waitUser();
     graphic::up(14);
 }
@@ -154,8 +153,7 @@ void Player::Attack(Player &player){
         Player::somewinner=true;
     }
 }
-
-void Player::fleetVisible(bool visible){
+void Player::setFleetVisible(bool visible){
     if(visible==true){
         for(int i=0;i<=size;i++){
             for(int j=0;j<=size;j++){

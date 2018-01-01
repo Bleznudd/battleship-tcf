@@ -1,12 +1,12 @@
-//giocatore
+//classe giocatore
 
 #ifndef PLAYER_H
 #define PLAYER_H
 
 #include <iostream>
+#include <string>
 #include "Point.h"
 #include "Ship.h"
-#include <string>
 
 class Player{
 
@@ -15,28 +15,26 @@ friend class ShipFactory;
 private:
 
 	static int counter;
+	static bool somewinner;
 	int shipnum[5];		//vettore del numero di ogni tipo di nave, [0] è il numero totale
-	int size;
+	int size;			//dimensione della griglia
 	string name;
 	vector<vector<Point> > map;
-	static bool somewinner;
 	vector<Ship*> fleet;
 
 public:
 
-	Player(string);
 	Player();
 	~Player();
 	string getName();
 	vector<Ship*> &getFleet();
 	vector<vector<Point> > &getMap();
-	static bool getSomewinner();
 	void UpdateShipnum();
 	void Deploy();
 	void Draw();
 	void Attack(Player&);
-	void fleetVisible(bool visible);
-	void mappoints();
+	void setFleetVisible(bool visible);
+	static bool getSomewinner();
 
 };
 

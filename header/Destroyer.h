@@ -3,8 +3,6 @@
 #ifndef DESTROYER_H
 #define DESTROYER_H
 
-#include <iostream>
-#include <vector>
 #include "Point.h"
 #include "Ship.h"
 using namespace std;

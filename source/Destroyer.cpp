@@ -1,7 +1,7 @@
-//implementazione di Destroyer
+//implementazione di Destroyer.h
 
 #include "../header/Destroyer.h"
-#include "../header/Ship.h"
+#include <vector>
 
 Destroyer::Destroyer(Point start_, Point end_){
     lenght=2;

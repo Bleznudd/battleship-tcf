@@ -1,5 +1,8 @@
+//implementazione di Ship.h
+
 #include "../header/Ship.h"
 
+#include <iostream>
 using namespace std;
 
 Ship::Ship(){
@@ -23,7 +26,6 @@ bool Ship::checkSunk(){
         }
     }
     if(nothit==0){
-        //cout << " E affondato !";
         sunk = true;
     }
     return sunk;

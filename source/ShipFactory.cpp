@@ -1,9 +1,11 @@
+//implementazione di ShipFactory.h
+
 #include "../header/ShipFactory.h"
-#include "../header/Graphic.h"
+#include "../header/Graphic.h"//----------> per graphic::clear() in ShipFactory::create()
 #include <algorithm>//--------------------> per std::swap in ShipFactory::create()
 
 using namespace std;
-using graphic::up;
+using graphic::r;
 
 ShipFactory::ShipFactory(){
 
@@ -103,6 +105,8 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
     }
     else{
         delete ship;
+        graphic::r();   //elimina il messaggio di affondamento proveniente
+                        //dal distruttore di Ship
     }
     return creation;
 }

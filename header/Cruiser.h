@@ -3,8 +3,6 @@
 #ifndef CRUISER_H
 #define CRUISER_H
 
-#include <iostream>
-#include <vector>
 #include "Point.h"
 #include "Ship.h"
 using namespace std;

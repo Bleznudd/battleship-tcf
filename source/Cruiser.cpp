@@ -1,7 +1,7 @@
-//implementazione di Cruiser
+//implementazione di Cruiser.h
 
 #include "../header/Cruiser.h"
-#include "../header/Ship.h"
+#include <vector>
 
 Cruiser::Cruiser(Point start_, Point end_){
     lenght=3;

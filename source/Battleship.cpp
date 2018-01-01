@@ -1,7 +1,7 @@
-//implementazione di Battleship
+//implementazione di Battleship.h
 
 #include "../header/Battleship.h"
-#include "../header/Ship.h"
+#include <vector>
 
 Battleship::Battleship(Point start_, Point end_){
     lenght=4;

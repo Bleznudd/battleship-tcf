@@ -1,7 +1,7 @@
-//implementazione di Carrier
+//implementazione di Carrier.h
 
 #include "../header/Carrier.h"
-#include "../header/Ship.h"
+#include <vector>
 
 Carrier::Carrier(Point start_, Point end_){
     lenght=5;

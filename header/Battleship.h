@@ -3,8 +3,6 @@
 #ifndef BATTLESHIP_H
 #define BATTLESHIP_H
 
-#include <iostream>
-#include <vector>
 #include "Point.h"
 #include "Ship.h"
 using namespace std;

@@ -27,10 +27,10 @@ int main(){
     graphic::up(5);
 
     //ISTRUZIONI
-    cout << "       *********************** ISTRUZIONI ************************* " << endl
+    cout << "       *********************** ISTRUZIONI ************************* " << endl << endl
          << "Generali" << endl
-         << "     Il gioco si svoglie in una griglia 10x10 caselle numerate 0-9." << endl
-         << "     Una posizione va indicata con 2 numeri separati da virgola (y,x)." << endl
+         << "     Il gioco si svolgee in una griglia 10x10 caselle numerate 0-9." << endl
+         << "     Ogni posizione va indicata con 2 numeri separati da virgola: y,x" << endl << endl
          << "Legenda" << endl
          << "     cacciatorpediniere = nave da 2 caselle" << endl
          << "        incrociatore    = nave da 3 caselle" << endl
@@ -39,18 +39,19 @@ int main(){
          << "            [ ]         = casella base" << endl
          << "            [-]         = casella mancata" << endl
          << "            [#]         = casella colpita" << endl
-         << "            [0]         = casella occupata da una nave" << endl
+         << "            [0]         = casella occupata da una nave" << endl << endl
          << "Fase 1: Schieramento" << endl
-         << "     Ogni giocatore deve posiionare 4 cacciatorpedinieri, 3 incrociatori" << endl
+         << "     Ogni giocatore deve posizionare 4 cacciatorpedinieri, 3 incrociatori" << endl
          << "     2 navi da battaglia e 1 portaerei. Una volta posizionate tutte le navi" << endl
-         << "     tocca all'altro giocatore." << endl
+         << "     tocca all'altro giocatore." << endl << endl
          << "Fase 2: Gioco" << endl
-         << "     A turno i giocatori idicano una posizione in cui sparare ricevendo" << endl
+         << "     A turno i giocatori indicano una posizione in cui sparare ricevendo" << endl
          << "     come risposta un messaggio (colpito o mancato ed eventualmente affondato)." << endl
-         << "     Quando un giocatore affonda tutte le navi avversarie è dichiarato vincitore" << endl
+         << "     Quando un giocatore affonda tutte le navi avversarie è dichiarato vincitore." << endl
          << endl;
     graphic::waitUser();
-    graphic::up(24);
+    graphic::up(28);
+    
     //CREAZIONE DELLE FLOTTE
     p1->Deploy();
     p2->Deploy();

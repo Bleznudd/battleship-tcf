@@ -1,5 +1,6 @@
+//implementazione di Punto.h
+
 #include "../header/Point.h"
-#include <iostream>
 
 using namespace std;
 
@@ -73,12 +74,4 @@ istream& operator>>(istream& ist, Point &p1){
         ist.setstate(std::ios_base::failbit);
     }
     return ist;
-}
-Point operator-(Point &p1, Point &p2){
-    Point d((p1.getX()-p2.getX()),(p1.getY()-p2.getY()));
-    return d;
-}
-Point operator+(Point &p1, Point &p2){
-    Point sum((p1.getX()+p2.getX()),(p1.getY()+p2.getY()));
-    return sum;
 }

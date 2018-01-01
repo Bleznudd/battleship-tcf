@@ -3,7 +3,6 @@
 #ifndef SHIP_H
 #define SHIP_H
 
-#include <iostream>
 #include <vector>
 #include "Point.h"
 using namespace std;
@@ -15,7 +14,7 @@ friend class ShipFactory;
 protected:
 
     int lenght;
-    bool sunk=false;
+    bool sunk = false;
     vector<Point*> OccupiedPoints;
 
 public:

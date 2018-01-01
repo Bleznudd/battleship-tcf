@@ -4,13 +4,16 @@ using namespace std;
 
 namespace graphic{
 
-    #ifdef UNIX
+    #ifdef ANSI
 
         void up(int n){
-            for(int i=0; i <n; i++){        //probabilmente è necessario un size+ qualcosa per cancellare tutto 
-                cout << "\x1b[A";           //quest'istruzione posiziona il cursore una riga in su
-                cout << "\x1b[2K";
+            for(int i=0; i <n; i++){
+                cout << "\x1b[A";
+                r();
             };
+        }
+        void r(){
+            cout << "\x1b[2K";
         }
         void clear(){
             cout << "\x1b[2J" ;
@@ -36,12 +39,10 @@ namespace graphic{
             }
             return new_s;
         }
-
         void waitUser(){
             cout << "(Premi ENTER per continuare)" << endl;
             cin.ignore();
         }
-
         void title(string s){
             cout << color('b',"       +--------------------------------------------------------+ ") << endl
                  << color('b',"       |                   ") 
@@ -53,10 +54,13 @@ namespace graphic{
 
     #endif
 
-    #ifdef WINDOWS
+    #ifdef NOTANSI
 
         void up(int n){
             clear();
+        }
+        void r(){
+
         }
         void clear(){
             for(unsigned i=0; i<10; i++){
@@ -71,13 +75,11 @@ namespace graphic{
             new_s = s;
             return new_s;
         }
-
         void waitUser(){
             cout << "(Premi ENTER per continuare)" << endl;
             cin.ignore();
             cin.ignore();
         }
-
         void title(string s){
             cout << "        -------------------------------------------------------- " << endl
                  << "       |                   "
