@@ -17,7 +17,7 @@ int main(){
     graphic::clear();
     graphic::gohome();
     graphic::title("BATTAGLIA NAVALE");
-    cout << "      ********************************************************** " << endl;
+    cout << "        ********************************************************** " << endl;
     cout << " Benvenuti a battaglia navale, per cominciare inserite i nomi dei giocatori " << endl;
     cout << endl;
 
@@ -27,7 +27,7 @@ int main(){
     graphic::up(5);
 
     //ISTRUZIONI
-    cout << "     ************************* ISTRUZIONI ************************* " << endl
+    cout << "       *********************** ISTRUZIONI ************************* " << endl
          << "Generali" << endl
          << "     Il gioco si svoglie in una griglia 10x10 caselle numerate 0-9." << endl
          << "     Una posizione va indicata con 2 numeri separati da virgola (y,x)." << endl

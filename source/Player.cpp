@@ -49,9 +49,9 @@ void Player::UpdateShipnum(){
 }
 void Player::Deploy(){
     Draw();
+    int surpluslines=0;
     cout << "Schieramento della flotta del giocatore " << name << ": ";
     while(shipnum[0] > 0){
-        int surpluslines=0;
         Point pi, pf;
         cout << endl << "Inserisci il punto iniziale della tua nave: ";
         while(!(cin >> pi)) {
@@ -71,16 +71,14 @@ void Player::Deploy(){
         }
         if(ShipFactory::create(pi, pf, this) == true){
             UpdateShipnum();
-            graphic::up(surpluslines+16);
+            graphic::up(surpluslines+15);
             fleetVisible(true);
             Draw();
+            surpluslines = 0;
         }
         else{
-            cout << endl;
-            graphic::up(1);
             cout << "L' intervallo di punti non corrisponde a nessun tipo di nave disponibile, riprovare";
-            surpluslines=+2;
-            
+            surpluslines+=3;
         }
     }
     fleetVisible(false);

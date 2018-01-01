@@ -1,7 +1,8 @@
 #include "../header/ShipFactory.h"
 #include "../header/Graphic.h"
-#include <algorithm>       //per std::swap in ShipFactory::create()
+#include <algorithm>//--------------------> per std::swap in ShipFactory::create()
 
+using namespace std;
 using graphic::up;
 
 ShipFactory::ShipFactory(){
@@ -29,7 +30,6 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
         }
     }
     else{
-        graphic::up(3);
         return false;
     }
 
@@ -38,54 +38,45 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
     switch(len){
         case 2:
             if(currentp->shipnum[1]>0){
-                //currentp->shipnum[1]--;
                 ship = new Destroyer(pstart,pend);
-                cout << "Creato cacciatorpediniere" << endl;
+                //cout << "Creato cacciatorpediniere" << endl;
                 creation=true;
             }
             else{
-                graphic::up(3);
                 return false;
             }
         break;
         case 3:
             if(currentp->shipnum[2]>0){
-                //currentp->shipnum[2]--;
                 ship = new Cruiser(pstart,pend);
-                cout << "Creato cacciatorpediniere" << endl;
+                //cout << "Creato cacciatorpediniere" << endl;
                 creation=true;
             }
             else{
-                graphic::up(3);
                 return false;
             }
         break;
         case 4:
             if(currentp->shipnum[3]>0){
-                //currentp->shipnum[3]--;
                 ship = new Battleship(pstart,pend);
-                cout << "Creato cacciatorpediniere" << endl;
+                //cout << "Creato cacciatorpediniere" << endl;
                 creation=true;
             }
             else{
-                graphic::up(3);
                 return false;
             }
         break;
         case 5:
             if(currentp->shipnum[4]>0){
-                //currentp->shipnum[4]--;
                 ship = new Carrier(pstart,pend);
-                cout << "Creato cacciatorpediniere" << endl;
+                //cout << "Creato cacciatorpediniere" << endl;
                 creation=true;
             }
             else{
-                graphic::up(3);
                 return false;
             }
         break;
         default:
-            graphic::up(3);
             return false;
         break;
     }
@@ -97,7 +88,6 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
                     if(**iter==currentp->map[i][j]){
                         if(currentp->map[i][j].getShippoint()==true){
                             creation=false;
-                            graphic::up(3);
                         }
                         else if(creation == true){
                         currentp->map[i][j].setShippoint(true);
@@ -113,7 +103,6 @@ bool ShipFactory::create(Point pstart, Point pend, Player* currentp){
     }
     else{
         delete ship;
-        graphic::up(1);
     }
     return creation;
 }
