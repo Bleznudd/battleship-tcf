@@ -29,8 +29,8 @@ int main(){
     //ISTRUZIONI
     cout << "       *********************** ISTRUZIONI ************************* " << endl << endl
          << "Generali" << endl
-         << "     Il gioco si svolgee in una griglia 10x10 caselle numerate 0-9." << endl
-         << "     Ogni posizione va indicata con 2 numeri separati da virgola: y,x" << endl << endl
+         << "     Il gioco si svolge in una griglia 10x10 caselle numerate 0-9." << endl
+         << "     Ogni posizione va indicata con 2 numeri separati da virgola (prima la riga poi la colonna): y,x" << endl << endl
          << "Legenda" << endl
          << "     cacciatorpediniere = nave da 2 caselle" << endl
          << "        incrociatore    = nave da 3 caselle" << endl
