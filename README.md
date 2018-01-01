@@ -35,6 +35,11 @@ Due to ANSI escape codes used in this project (which widnows prompt does not sup
 and then you will need to open the Makefile, ad modify the `DR` variable from `UNIX` to `WINDOWS`.
 After that you will be able to run make, and play the game as mentioned above.
 
+## Alternative installation
+Some not updated versions of the game can be downloaded from the **release** section of the github repository, or either from the links below:
+- [v0.1 Linux x86_64](https://github.com/Bleznudd/battleship-tcf/releases/download/v0.1/battleship-tcf)
+- [v0.1 Mac](https://github.com/Bleznudd/battleship-tcf/releases/download/v0.1/battleship-tcf/mac)
+
 ## Manteinance
 As said, this is a game made for the C++ exam of TCF course of 2017, so it will not be manteined after the exam date.
 Don't expect update and/or bugfix
