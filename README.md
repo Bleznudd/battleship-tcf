@@ -24,19 +24,25 @@ And run the Makefile with the command
 ```
 make
 ```
+> You can speed up compilation by adding the `-jN` option to make, where N is the number of contemporary jobs you want to process, in general is not recommanded to use a value higer than the number of cores of your CPU
 
 You will find and executable file in the directory called **battleship-tcf**, start the game with
 ```
 ./battleship-tcf
 ```
+### Note for NON ANSI terminal
+If your terminal emulator does not support ANSI escape codes, which are used in this project, you may still want to play the game. Just replace the make command with
+```
+make -e DA=NOTANSI
+```
+> You can still add the `-jN` option mentioned above
 
 ### Note for Windows users
-Due to ANSI escape codes used in this project (which widnows prompt does not support) you will need ad additional step to play this game. First you will need [GnuWin](http://gnuwin32.sourceforge.net/) or [Cygwin](http://www.cygwin.com/)
-and then you will need to open the Makefile, ad modify the `DR` variable from `UNIX` to `WINDOWS`.
-After that you will be able to run make, and play the game as mentioned above.
+Windows prompt doeas not support ANSI escape code, so you will need to use the **NON ANSI** procedure. In addition you will need [GnuWin](http://gnuwin32.sourceforge.net/) or [Cygwin](http://www.cygwin.com/) to use the make command, because Windows does not provide native support for makefiles.
+After that you will be able to play the game as mentioned above.
 
 ## Alternative installation
-Some not updated versions of the game can be downloaded from the **release** section of the github repository, or either from the links below:
+Some **not updated** versions of the game can be downloaded from the **release** section of the github repository, or either from the links below:
 - [v0.1 Linux x86_64](https://github.com/Bleznudd/battleship-tcf/releases/download/v0.1/battleship-tcf)
 - [v0.1 Mac](https://github.com/Bleznudd/battleship-tcf/releases/download/v0.1/battleship-tcf/mac)
 
