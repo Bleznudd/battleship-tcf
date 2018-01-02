@@ -42,7 +42,7 @@ Windows prompt doeas not support ANSI escape code, so you will need to use the *
 After that you will be able to play the game as mentioned above.
 
 ## Alternative installation
-Some **not updated** versions of the game can be downloaded from the **release** section of the github repository, or either from the links below:
+Some **not updated** versions of the game can be downloaded from the [release](https://github.com/Bleznudd/battleship-tcf/releases) section of the github repository, or either from the links below:
 - [v0.1 Linux x86_64](https://github.com/Bleznudd/battleship-tcf/releases/download/v0.1/battleship-tcf)
 - [v0.1 Mac](https://github.com/Bleznudd/battleship-tcf/releases/download/v0.1/battleship-tcf/mac)
 
